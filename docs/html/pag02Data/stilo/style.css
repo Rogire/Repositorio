@@ -1,0 +1,36 @@
+*{
+    font-family: 'Noto Sans', sans-serif;
+}
+body{
+    background-image: none;
+    background-color:#6B777D;
+    transition: all 0.1s;
+}
+body.active{
+    background-color: #f0f0f0;
+    transition: all 0.1s;
+}
+header.active{
+    background-color: rgba(216, 166, 0, 0.795);
+    transition: all 0.1s;
+}
+main{
+    margin: 0;
+}
+h1{
+    font-size: 20px;
+}
+header{
+    background-color: #263D40;
+    color: #fff;
+    transition: all 0.1s;
+}
+hr{
+    background-color: #82CFD9;
+    margin: 2px 0px 0px 0px;
+}
+li{
+    position: relative;
+    text-align: center;
+}
+

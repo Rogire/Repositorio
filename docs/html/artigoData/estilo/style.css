@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    margin: 0;
+    background-color: rgba(230, 230, 27, 0.726);
+    background-image: none;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    text-align: center;
+    border: 2px solid black;
+}
+header h1{
+    margin: auto;
+    text-align: center;   
+}
+header>nav>a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    margin: 50% 0% 0% 0%;
+}
+main{
+    margin: auto;
+}
+article{
+    height: 100%;
+    padding: 15px;
+    background-color: rgba(243, 243, 243, 0.877);
+    margin: auto;
+    max-width: 800px;
+    text-align: justify;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.main{
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+}
+a{
+    color: black;
+}
+a:hover{
+    color: gray;
+}
+h2{
+    color: black;
+    margin: 5px;
+}
+h3{
+    margin: 5px;
+}
+#nana{
+    color: rgb(145, 145, 0);
+}
+#maça{
+    color: red;
+}
+#mela{
+    color: rgb(160, 106, 115);
+}
+#mid{
+    color: rgb(175, 114, 0);
+}
+#mama{
+    color: rgb(133, 77, 55);
+}
+div{
+    border-radius: 7px;
+}
+#bal{
+    background-color: rgba(255, 255, 71, 0.486);
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+}
+#mac{
+    background-color: #ff4e5a6e;
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+}
+#mel{
+    background-color: rgba(242, 115, 83, 0.479);
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+}
+#toranjo{
+    background-color: rgba(254, 111, 1, 0.438);
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+}
+#mamas{
+    background-color: rgba(255, 64, 21, 0.452);
+    padding: 5px;
+    width: 100%;
+    margin: 0;
+}
+
+footer{
+    text-align: center;
+}
+#hidden{
+    display: none;
+}
+#hidden.active{
+    display: block;
+    margin: auto;
+    max-width: 800px;
+    text-align: justify;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgba(84, 199, 38, 0.774);
+}
+#tfund{
+    padding: 15px;
+    background-color: rgba(189, 47, 25, 0.699);
+}

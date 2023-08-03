@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+:root{
+    --corfundo:#F7AB14;
+    --cor1:#E0A900;
+    --cor2:#ED8F0C;
+    --cor3:#F7D00C;
+}
+*{
+    margin: 0;
+    font-family: 'Tilt Neon', 'sans-serif';
+    padding: 0;
+}
+body{
+    background-color: var(--corfundo);
+    position: relative;
+}
+
+header{
+    color: #fff;
+    height: 100px;
+    padding: 10px;
+    
+}
+header >h1{
+    text-align: center;
+}
+nav{
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+p{
+    margin: 15px;
+    font-weight: bolder;
+    text-align: justify;
+    width: 125px;
+    background-color: var(--cor3);
+    padding: 10px;
+    border-radius: 5px;
+}
+p.text{
+    width: 250px;
+}
+div.parallax{
+    height: 300px;
+    width: 700px;
+    
+    background-image: url(imagens/laranjas.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    position: absolute;
+    right: 5%;
+    top: 30%;
+}
+h4, select{
+    background-color: var(--cor2);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.473);
+    cursor: pointer;
+}
+h4:hover, select:hover{
+    background-color: var(--cor1);
+}
+select{
+    color: #FFF;
+    border: none;
+}
+a{
+    background-color: var(--cor2);
+    padding: 2px;
+    border-radius: 7px;
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: lightgray;
+}
+.trans{
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+/*formulário*/
+.container {
+    background-color: var(--cor3);
+    padding: 0;
+    transform: translateY(30%);
+    height: 220px;
+    width: 350px;
+    min-height: 350px;
+    max-height: 500px;
+    border-radius: 15px;
+    margin: auto;
+    
+}
+
+.container>form {
+    padding: 15px;
+    margin-top: 30px;
+    text-align: center;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+input{
+    margin: 2px;
+    
+}
+.g{
+    width: 158px;
+    padding: 2px;
+}
+small{
+    color: red;
+    width: 100px;
+}
+#conf{
+    width: 500px;
+}
+div.container> div.header{
+    background-color: var(--cor2);
+    border-radius: 10px 10px 0 0;
+    color: white;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+#passwordconf{
+    width: 210px;
+}
+#submit{
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    margin: 15px;
+    background-color: red;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.404);
+}
+#submit:hover{
+    background-color: lightgray;
+}
+
+.form-control-error>input{
+    border: 2px solid red;
+}
+
+.form-control-success>input{
+    border: 2px solid green;
+}

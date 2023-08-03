@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang=pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login e Cadastro</title>
+    <link rel="stylesheet" href="html/formularioData/estilo/style.css">
+
+    <style>
+        body{
+            background-image: url(html/formularioData/laranjeira.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <a href="laranjas.html">
+        <img style="width: 60px; background-color: transparent;" src="html/media/imagens/atras.png" alt="atras">
+    </a>
+    <div class="container">   
+        <div class="header">
+            <h2>Cadastre-se</h2>
+        </div>
+        <form>
+            <div class="form-control">
+                <label for="username">Nome:</label>
+                <input type="text" id='username' placeholder="Insira o nome aqui" class="g">
+                <i></i>
+                <br><small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="email"> Email  : </label>
+                <input type="text" id='email' placeholder="exemplo@email.com" class="g">
+                <i></i>
+                <br><small></small>
+            </div>
+
+            <div class="form-control">
+                <label for="password">Senha:</label>
+                <input type="text" id='password' placeholder="Insira a senha aqui" class="g">
+                <i></i>
+                <br><small></small>            
+            </div>
+
+           <div class="form-control" id="conf">
+                <label for="passwordconf"></label>
+                <input type="text" id='passwordconf' placeholder="Confirmar senha" class="g">
+                <i></i>
+                <br><small></small>
+            </div> 
+            <input type="submit" value="Enviar" id="sub">
+        </form>
+    </div>
+    <script defer src="html/formularioData/sript/main.js"></script>
+</body>
+</html>
