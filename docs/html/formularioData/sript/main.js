@@ -4,11 +4,13 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordConf = document.getElementById('passwordconf');
 const sub=document.getElementById('sub')
+let passed = false;
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    
-    return check();
+    check();
+    if(passed == false){
+        event.preventDefault();
+    }
 });
 
 function check() {
@@ -46,11 +48,13 @@ function check() {
     } else {
         setSucessFor(passwordConf);
     }
+
 }
 
 function SetErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector("small");
+    passed = false;
 
     small.innerText = message;
     formControl.classList.add("form-control-error");
@@ -58,6 +62,7 @@ function SetErrorFor(input, message) {
 function setSucessFor(input) {
     const formControl = input.parentElement;
     const small = formControl.querySelector("small");
+    passed=true;
     formControl.classList.add("form-control-success");
     small.innerText = ""
 
