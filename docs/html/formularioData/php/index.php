@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Teste de resultado de form</h1>
+    
     <?php 
     $nome=$_GET["username"];
     $email=$_GET["email"];
