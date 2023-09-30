@@ -1,6 +1,5 @@
-let hora= document.getElementById('hora')
-
-let relogio= setInterval(function time(){
+const hora= document.getElementById('hora');
+const relogio= setInterval(function time(){
     let hor= new Date()
     let now= hor.getHours()
     let mow= hor.getMinutes()
@@ -11,20 +10,39 @@ let relogio= setInterval(function time(){
     if(sow < 10) sow='0' + sow;
 
     hora.innerHTML=`${now}:${mow}:${sow}`
-})
+});
 
-let button=document.querySelector('button#ler')
 
-button.addEventListener('click', function(){
+const button=document.querySelector('button.ler');
+const button2=document.querySelector('div.ler2');
 
+button.addEventListener('click', ()=>{
     let texto=document.querySelector('.card')
     texto.classList.toggle('active');
-    
+
     button.textContent='ler mais'
     if(texto.classList.contains('active')){
     button.textContent='ler menos'}
+});
 
-})
+
+button2.addEventListener('click',()=>{
+    let texto=document.querySelector('.hidden2');
+    button2.classList.toggle("active");
+    texto.classList.toggle('active');
+    if(texto.classList.contains('active'))
+        scrollTo('#fut');
+    else 
+        scrollTo('#cabeçalho');
+});
+
+function scrollTo(e){
+    document.querySelector(e).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
 
 const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
@@ -39,14 +57,3 @@ const observer = new IntersectionObserver((entries)=>{
 
 const hiddenElements= document.querySelectorAll('.card',);
 hiddenElements.forEach((el)=>observer.observe(el));
-
-let escu = document.getElementById('esca')
-escu.addEventListener('click',  ()=>{
-    let modo = document.getElementById('corpo')
-    let claro = document.getElementById('cabeçalho')
-
-    modo.classList.toggle('active');
-
-    claro.classList.toggle('active');
-
-})

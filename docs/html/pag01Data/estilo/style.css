@@ -3,34 +3,27 @@
 *{
     font-family: 'Open Sans', Helvetica, sans-serif;
     text-align: justify;
-
+    color: #fff;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+/*Corpo e Parallax */ 
 body{
     background-color: rgb(95, 149, 201);
     min-height: 100vh;
     min-width: 400px;
-    background-image: linear-gradient(to right,#EBBFB5,#E8AF90,#E0B696);
+    background-image: url('fundoParallax/pexels-nino-souza-2800552.jpg');
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0;
     transition: all 0.1s;
 }
-body.active{
-    background-image: none;
-    background-color: #263D40;
-    color: bisque;
-    transition: all 0.1s;
-}
-body.active li{
-    color: black;
-    transition: all 0.1s;
-}
-body.active #sec{
-    background-color: #1c92a1;
-    transition: all 0.1s;
-}
+
 header{
-    background-color: #299da5bd;
-    height: max-content;
     margin:0;
     padding: 5px;
     transition: all 0.1s;
@@ -38,40 +31,24 @@ header{
 header> h1{
     margin: 0;
 }
-header.active{
-    background-color: #4B777D;
-    transition: all 0.1s;
-}
+
 main{
     max-width: 100%;
     margin: 15px;
 }
-.apresent{
+h2.apresent{
     display: flex;
     justify-content: space-between;
 }
-#esca{
-    margin:0;
-    border-radius: 15px;
-    height: 25px;
-    max-height: 25px;
-    border: none;
-    background-color: lightgray;
-    box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.521);
-}
-#esca:hover{
-    background-color: gray;
-    cursor: pointer;
-}
-#hora{
-    text-align: right;
+
+/*Display da Hora */
+div#hora{
+    text-align: center;
     font-family:'Oswald',sans-serif;
     font-weight: bolder;
-    font-size: 25px;
+    font-size: 45px;
+    color: #fff;
     margin: 0;
-}
-#agora{
-    text-align: right;
 }
 a{
     margin: 10px;
@@ -89,6 +66,8 @@ h1{
 h2{
     color: aliceblue;
 }
+
+/*Botão de ler mais*/ 
 .card{
     display: flex;
     flex-direction: column;
@@ -104,7 +83,7 @@ h2{
    transform: translateX(-100%);
     transition: all 1s;
 }
-.conta{
+div.conta{
     height: 100px;
     overflow: hidden;
     position: relative;
@@ -118,13 +97,15 @@ h2{
 
 .card.active .conta::before{
     visibility: hidden;
+    transition: all 1s;
 }
+
 .conta p{
     color:#ffffff;
 }
 
 
-#ler{
+.ler{
     border: none;
     width: 110px;;
     padding: 10px;
@@ -141,7 +122,7 @@ h2{
     color: #ffffff;
     transition: all 0.2s ease-in-out;
 }
-
+/*Transição*/
 .show{
     opacity: 1;
     filter: blur(0);
@@ -160,11 +141,52 @@ h2{
     width: 50px;
     height: 50px;
 }
+
+/*scroll da seta*/
+.card2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    right: 46%;
+    margin: 50px;
+}
+
+div.hidden2{
+    display: none;
+}
+div.hidden2.active{
+    display: block;
+}
+
+/*Seta*/
+div.ler2{
+    background-image: url('fundoParallax/setaPraBaixo\ \(2\).png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 150px;
+    width: 150px;
+    border: none;
+    transition: 0.3s all;
+}
+div.ler2:hover{
+    cursor: pointer;
+    transition: 0.3s all;
+}
+div.ler2.active{
+    transform: rotate(180deg);
+    transition: 0.3s all;
+}
+
+div.ler2.active:hover{
+    transition: 0.3s all;
+}
+
 img{
     height: 100px;
     width: auto;
 }
-#sec{
+section#sec{
     background-color: #37DFEB;
     border-radius: 15px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.671);
@@ -175,8 +197,21 @@ img{
     padding: 8px;
 
 }
+/*Apresentação dos projetos*/
+div.hidden2>h2{
+    background-color: #3131318a;
+    text-align: center;
+}
+div.eta{
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    display: inline-block;
+}
 
-.li{
+li.item{
     background-color: #313131;
     box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.534);
     display: flex;
@@ -190,7 +225,8 @@ img{
     transition: all 0.5s ease-in-out;
 
 }
-.li:hover{
+
+li.item:hover{
     background-color:#31313196;
     transition: all 0.4s ease-in-out;
     transform: translateY(-15%) translateX(20%);
@@ -198,4 +234,22 @@ img{
 footer{
     margin: auto;
     text-align: center;
+}
+
+@media (max-width:1200px) 
+{
+    body
+    {
+        background-image: url('fundoParallax/fundoMob.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    div.eta{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
 }
