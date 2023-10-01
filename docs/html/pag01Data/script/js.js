@@ -15,9 +15,10 @@ const relogio= setInterval(function time(){
 
 const button=document.querySelector('button.ler');
 const button2=document.querySelector('div.ler2');
+const button3= document.querySelector('button#bot');
 
 button.addEventListener('click', ()=>{
-    let texto=document.querySelector('.card')
+    let texto=document.querySelector('.card')  
     texto.classList.toggle('active');
 
     button.textContent='ler mais'
@@ -25,11 +26,21 @@ button.addEventListener('click', ()=>{
     button.textContent='ler menos'}
 });
 
+button3.addEventListener("click", () => {
+  let texto = document.querySelector(".tres");
+  texto.classList.toggle("active");
+
+  button3.textContent = "ler mais";
+  if (texto.classList.contains("active")) {
+    button3.textContent = "ler menos";
+  }
+});
 
 button2.addEventListener('click',()=>{
     let texto=document.querySelector('.hidden2');
-    button2.classList.toggle("active");
-    texto.classList.toggle('active');
+        button2.classList.toggle("active");
+        texto.classList.toggle('active');
+
     if(texto.classList.contains('active'))
         scrollTo('#fut');
     else 
@@ -41,8 +52,6 @@ function scrollTo(e){
         behavior:"smooth"
     });
 }
-
-
 
 const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{

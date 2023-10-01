@@ -36,10 +36,12 @@ main{
     max-width: 100%;
     margin: 15px;
 }
-h2.apresent{
-    display: flex;
-    justify-content: space-between;
+div.apresent{
+    text-indent: 10px;
+    width:450px;
+   
 }
+
 
 /*Display da Hora */
 div#hora{
@@ -68,10 +70,12 @@ h2{
 }
 
 /*Botão de ler mais*/ 
-.card{
+div.container{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+}
+.card{
+    text-align: left;
     background-color: #299da5;
     margin: 15px;
     width:270px;
@@ -84,18 +88,25 @@ h2{
     transition: all 1s;
 }
 div.conta{
-    height: 100px;
+    height: 50px;
+    text-align: left;
     overflow: hidden;
     position: relative;
     transition: all 1s;
     
 }
-.card.active .conta{
-    height: auto;
+div.conta>p{
+    text-align: center;
+}
+.card.um.active .conta{
+    height: 600px;
     transition: all 1s;
 }
-
-.card.active .conta::before{
+.card.tres.active .conta {
+    height: 300px;
+    transition: all 1s;
+}
+.card.active.conta::before{
     visibility: hidden;
     transition: all 1s;
 }
@@ -104,6 +115,9 @@ div.conta{
     color:#ffffff;
 }
 
+.conta.ct{
+    height: 0;
+}
 
 .ler{
     border: none;
