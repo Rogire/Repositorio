@@ -8,13 +8,14 @@
 
 :root{
 
-    --corfundo: #003f88;
+    --corfundo: #003f88d5;
     --corsec:#1999ee;
     --corbotao:#f5c400;
     --coraux:#A88500;
 }
 body{
-    background-image: linear-gradient(45deg, var(--corfundo),var(--corsec));
+    background-image: url(fundoconv.jpg);
+    background-size: cover;
     background-color: var(--corfundo);
     height: 98vh;
 }
@@ -27,7 +28,7 @@ div.container{
 /*Configurações das divs laterais*/
 
 div.lat{
-    background-color: var(--corsec);
+
     width: 17%;
     height: 100vh;
 }
@@ -36,15 +37,22 @@ div.lat{
 div.Mct{
     background-color: var(--corfundo);
     padding: 20px;
-    margin: 20px;
+    margin: 0px;
     text-align: center;
 }
-span{
+div.gambssec{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+img.seta{
+    margin: auto;
 }
 h1,h2,h3{
     color: #fff;
+}
+form{
+    margin: auto;
 }
 select{
     margin: 50px;
@@ -58,8 +66,13 @@ img{
     width: 70px;
     height: 70px;
 }
-img.seta{
-    margin-top: 45px;
+div.gambs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+img.seta.dois{
+    margin-top: 0px;
 }
 input.in{
     background-color: var(--corbotao);
@@ -91,5 +104,11 @@ section.res{
 .res.active{
     display: block;
     position: absolute;
+    height: fit-content;
     bottom: 0px;
+}
+
+.res.active.erro{
+    background-color: rgba(255, 48, 48, 0.829);
+    
 }

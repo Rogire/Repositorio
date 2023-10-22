@@ -24,18 +24,28 @@ function preConvert(caixa) {
   const url = `https://v6.exchangerate-api.com/v6/c4e0096d9ce997a326f289f9/latest/${currency}`;
   const url2 = `https://v6.exchangerate-api.com/v6/c4e0096d9ce997a326f289f9/latest/${currency2}`;
 
-  if(currency !=='' && converter !=='' || (currency2 !== '' || converter2 !== ''))
-    caixa.textContent = "Selecione apenas um modo";
-  else if (currency !== "" && converter !== "") 
-    convert(url, converter);
-  else if (currency !== "" && converter == "") 
-    convert(url, converter2);
-  else if (currency == "" && converter !== "") 
-    convert(url2, converter);
-  else if (currency == "" && converter == "") 
-    convert(url2, converter2);
+  if((currency !=='' || converter !=='') && (currency2 !== '' || converter2 !== ''))
+    SetErrorFor("Selecione apenas um modo de conversão", caixa);
+  else if ((currency == "" || converter == "") && (currency2 == "" || converter2== ""))
+    SetErrorFor("Selecione as moedas", caixa);
+  else if(currency !== '' && converter !== '')
+    setSucessFor(caixa,url,converter);
+  else if(currency2 !== '' && converter2 !== '')
+    setSucessFor(caixa, url2, converter2);
   
+    console.log(currency,currency2, converter, converter2);
 }
+//Funções de validação
+function SetErrorFor(message,box){
+  box.textContent = message;
+  box.classList.add('erro');
+}
+function setSucessFor(box, moeda1, moeda2){
+  if(box.classList.contains('erro'))
+    box.classList.remove('erro');
+    convert(moeda1,moeda2);
+}
+
 
 // função que decodifico o json e calcula a taxa
 async function convert(param,convertido) {
