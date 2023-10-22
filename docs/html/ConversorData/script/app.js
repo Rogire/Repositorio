@@ -33,8 +33,9 @@ function preConvert(caixa) {
   else if(currency2 !== '' && converter2 !== '')
     setSucessFor(caixa, url2, converter2);
   
-    console.log(currency,currency2, converter, converter2);
+  //  console.log(currency,currency2, converter, converter2);
 }
+
 //Funções de validação
 function SetErrorFor(message,box){
   box.textContent = message;
@@ -70,7 +71,7 @@ async function convert(param,convertido) {
     }
     const dadosConvertido = values[val];
     caixa.textContent = (numV/dadosConvertido).toFixed(2);
-    console.log(param, convertido, num.value, val);
+  //  console.log(param, convertido, num.value, val);
 
   } catch (err) {
     let caixa = document.querySelector("section.res");
