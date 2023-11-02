@@ -10,8 +10,9 @@ const Valor = document.querySelector('input#num');
 botao.addEventListener("submit", (e) => {
   e.preventDefault();
   let caixa = document.querySelector("section.res");
-  caixa.classList.add("active");
   preConvert(caixa);
+  
+  
 });
 
 
@@ -50,7 +51,7 @@ function setSucessFor(box, moeda1, moeda2){
 
 
 // função que decodifico o json e calcula a taxa
-async function convert(param,convertido) {
+ async function convert(param,convertido) {
     let caixa = document.querySelector("section.res");
     numV=Valor.value;
   try {
@@ -75,7 +76,8 @@ async function convert(param,convertido) {
     const dadosConvertido = values[val];
     alinhar=document.createElement('span.teste');
 
-    caixa.textContent = (numV/dadosConvertido).toFixed(2);
+    caixa.textContent =(numV/dadosConvertido).toFixed(2);
+    caixa.classList.add("active");
   //  console.log(param, convertido, num.value, val);
 
   } catch (err) {
