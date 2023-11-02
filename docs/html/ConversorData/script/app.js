@@ -18,6 +18,7 @@ botao.addEventListener("submit", (e) => {
 function preConvert(caixa) {
   let currency = cur1.value;
   let currency2 = cur4.value;
+  
   let converter = cur2.value;
   let converter2 = cur3.value;
 
@@ -54,9 +55,11 @@ async function convert(param,convertido) {
     numV=Valor.value;
   try {
     const response = await fetch(param);
-        if (!response) throw new Error("Erro de conexão, verifique sua internet");
+        if (!response) 
+          throw new Error("Erro de conexão, verifique sua internet");
     const DadosConversao = await response.json();
-        if(DadosConversao.result === 'error') throw new Error("Erro");
+        if(DadosConversao.result === 'error') 
+          throw new Error("Erro");
 
     //converte o objeto json para array
     keys = Object.keys(DadosConversao.conversion_rates);
@@ -70,6 +73,8 @@ async function convert(param,convertido) {
         val = i;
     }
     const dadosConvertido = values[val];
+    alinhar=document.createElement('span.teste');
+
     caixa.textContent = (numV/dadosConvertido).toFixed(2);
   //  console.log(param, convertido, num.value, val);
 

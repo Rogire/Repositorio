@@ -104,11 +104,17 @@ section.res{
 .res.active{
     display: block;
     position: absolute;
-    height: fit-content;
+    left: 46%;
+    height: 100px;
     bottom: 0px;
 }
 
 .res.active.erro{
     background-color: rgba(255, 48, 48, 0.829);
-    
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.753);
+    font-size: larger;
+}
+
+.res.active.erro>p{
+    margin: auto;
 }
