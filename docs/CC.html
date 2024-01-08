@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica</title>
+    <link rel="stylesheet" href="html/CCdata/estilo/style.css">
+</head>
+<body>
+    <main>
+        <div class="Calculadora">
+
+            <section class="resultados">
+                <div class="contas"   id="c1"></div>
+                <div class="contas c2" id="c2"></div>
+            </section>
+            <div class="aux"></div>
+            <section class="botoes">
+
+                <div class="operacoesE">
+                    <div class="botao o" id="sqr" data-value="√" contador="0">√</div>
+                    <div class="botao o" id="quad" data-value="²" contador="0">x2</div>
+                    <div class="botao o" id="pot" data-value="^" contador="0">^</div>
+                    <div class="botao o" id="log" data-value="log" contador="0">log</div>
+                    <div class="botao o" id="ln" data-value="ln" contador="0">ln</div>
+                    <div class="botao o" id="sin" data-value="sin" contador="0">sin</div>
+                    <div class="botao o" id="cos" data-value="cos" contador="0">cos</div>
+                    <div class="botao o" id="tg" data-value="tg" contador="0">tg</div>
+                </div>
+
+                <section class="numEres">
+
+                    <div class="numeros">
+                        <div class="num1">
+                            <div class="botao g" data-value="1">1</div>
+                            <div class="botao g" data-value="2">2</div>
+                            <div class="botao g" data-value="3">3</div>
+                        </div>
+                        <div class="num2">
+                            <div class="botao g" data-value="4">4</div>
+                            <div class="botao g" data-value="5">5</div>
+                            <div class="botao g" data-value="6">6</div>
+                        </div>
+                        <div class="num3">
+                            <div class="botao g" data-value="7">7</div>
+                            <div class="botao g" data-value="8">8</div>
+                            <div class="botao g" data-value="9">9</div>
+                        </div>
+                    </div>
+                    <div class="operacoes op">
+
+                        <div class="op op1">
+                            <div class="botao ce" id="del">DEL</div>
+                            <div class="botao ce" id="ac" data-value="">AC</div>
+                        </div>
+                        
+                        <div class="op op2">
+                            <div class="botao o" id="vzs" data-value="x" contador="0">x</div>
+                            <div class="botao o" id="div" data-value="/" contador="0">/</div>
+                        </div>
+
+                        <div class="op op3">
+                            <div class="botao o" id="som" data-value="+" contador="0">+</div>
+                            <div class="botao o" id="sub" data-value="-" contador="0">-</div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="gambiarra">
+
+                    <div class="num4">
+                        <div class="botao g" data-value="0">0</div>
+                        <div class="botao g" data-value=".">.</div>
+                        <div class="botao">EXP</div>
+                    </div>
+                    <div class="op op4">
+                        <div class="botao" id="ans">Ans</div>
+                        <div class="botao" id="res">=</div>
+
+                    </div>
+                </section>
+                    
+            </section>
+        </div>
+    </main>
+    <script src="html/CCdata/script/app.js" defer></script>
+</body>
+</html>
