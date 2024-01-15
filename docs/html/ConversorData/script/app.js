@@ -58,6 +58,7 @@ function setSucessFor(box, moeda1, moeda2){
     const response = await fetch(param);
         if (!response) 
           throw new Error("Erro de conexão, verifique sua internet");
+        
     const DadosConversao = await response.json();
         if(DadosConversao.result === 'error') 
           throw new Error("Erro");

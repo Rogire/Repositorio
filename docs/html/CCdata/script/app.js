@@ -19,7 +19,8 @@ const sin = document.querySelector("div#sin");
 const cos = document.querySelector("div#cos");
 const tg  = document.querySelector("div#tg");
 
-let contador=0
+let eq;
+
 
 //Array para armazenar as teclas 
 const numeros = document.querySelectorAll("div.botao.g");
@@ -30,9 +31,7 @@ for(let i=0; i<numeros.length; i++)
 {
     numeros[i].addEventListener("click",(e)=>{
         e.preventDefault();
-        let aux=[];
-        EscNum(numeros[i].getAttribute("data-value"),aux)
-        Numeros(i);
+        EscNum(numeros[i].getAttribute("data-value"))
     })
 }
 
@@ -40,13 +39,14 @@ for(let i=0; i<numeros.length; i++)
 for (let i = 0; i < op.length; i++) {
     op[i].addEventListener("click", (e) => {
     e.preventDefault();
-    EscOp(op[i].getAttribute("data-value"),teste);
+    EscOp(op[i].getAttribute("data-value"),op[i].getAttribute("data-E"));
   });
 }
 
 ac.addEventListener("click",(e)=>{
     e.preventDefault();
     c1.textContent = ac.getAttribute("data-value")
+    c2.textContent=ac.getAttribute("data-value")
 })
 del.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -54,22 +54,59 @@ del.addEventListener("click",(e)=>{
     c1.textContent= ap.substring(0, ap.length-1)
 })
 
+res.addEventListener('click',(e)=>{
+    e.preventDefault();
+    let resu = eval(c1.textContent)
+    c2.textContent = resu
+});
 
-function Numeros(i){
-    let aux = [];
-    return EscNum(numeros[i].getAttribute("data-value"), aux);
-}
-
-function EscNum(val,aux)
+//função para escrever a equação
+function EscNum(val)
 {
     c1.textContent+=val;
-    aux[contador]=val
-    contador++;
-    return aux;
+    eq += val;
 }
 
 function EscOp(val,aux)
 {
     c1.textContent += val;
-    console.log(aux)
+
+    if(aux !== "esp")
+        eq +=val;
+    else
+    {
+        switch (val)
+        {
+            case "sqr":
+
+                eq.textContent += Math.sqrt()
+                break;
+        }
+    }
 }
+
+// 5+5*3/78
+/*
+    contOp=0
+    while(contOp <=1)
+    {
+        if(EhOp(c1.textContent[i]))
+            contOp++;
+        eq += c1.textcontent[i];
+        pos++
+        i++
+    }
+
+    EhOP(val)
+    {
+    
+    let vef=false;
+
+    for(let i=0; i<op.length(); i++)
+        if(val == op[i].getAttribute("data-value"))
+            vef = true
+
+    return vef;
+    }
+
+ */

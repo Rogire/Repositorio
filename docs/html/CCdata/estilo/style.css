@@ -1,9 +1,11 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200&display=swap');
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Roboto Condensed';
+    font-weight: bolder;
 }
-
 body{
     background-color: rgb(7, 7, 73);
 }
