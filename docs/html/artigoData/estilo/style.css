@@ -1,19 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 
+:root{
+    --corFundo:#E0D71A;
+    --cor1:#E0BF1B;
+    --cor2:#B0E01B;
+    --cor3:#5DE01B;
+    --coraux:#D4CD82;
+}
+
 *{
     font-family: 'Open Sans', sans-serif;
+    color:black;
 }
+
 body{
     margin: 0;
-    background-color: rgba(230, 230, 27, 0.726);
+    background-color: var(--corFundo);
     background-image: none;
 }
 header{
     display: flex;
+    background-color: var(--cor1);
     flex-direction: column;
     height: 150px;
+    width: 105%;
     text-align: center;
-    border: 2px solid black;
+    border: 1px solid black;
+
 }
 header h1{
     margin: auto;
@@ -28,10 +41,14 @@ header>nav>a{
 main{
     margin: auto;
 }
+.main{
+    background-color: var(--cor1);
+    color: #fff;
+}
 article{
     height: 100%;
     padding: 15px;
-    background-color: rgba(243, 243, 243, 0.877);
+    background-color: var(--cor2);
     margin: auto;
     max-width: 800px;
     text-align: justify;
@@ -56,71 +73,110 @@ h2{
 h3{
     margin: 5px;
 }
-#nana{
-    color: rgb(145, 145, 0);
+
+input{
+    background-color: transparent;
+    border: 3px solid black;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
 }
-#maça{
+input:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+div.frutas.bal>h3{
+    color: rgb(129, 129, 0);
+}
+div.frutas.mac>h3{
     color: red;
 }
-#mela{
-    color: rgb(160, 106, 115);
+div.frutas.mel>h3{
+    color: rgb(255, 0, 43);
 }
-#mid{
-    color: rgb(175, 114, 0);
+div.frutas.toranjo>h3{
+    color: rgb(255, 204, 108);
 }
-#mama{
-    color: rgb(133, 77, 55);
+div.frutas.mamas>h3{
+    color: rgb(250, 135, 89);
 }
 div{
     border-radius: 7px;
 }
-#bal{
-    background-color: rgba(255, 255, 71, 0.486);
+div.frutas{
     padding: 5px;
     width: 100%;
     margin: 0;
 }
-#mac{
+.frutas.bal{
+    background-color: rgb(255, 255, 71);
+}
+.frutas.mac{
     background-color: #ff4e5a6e;
-    padding: 5px;
-    width: 100%;
-    margin: 0;
 }
-#mel{
-    background-color: rgba(242, 115, 83, 0.479);
-    padding: 5px;
-    width: 100%;
-    margin: 0;
+.frutas.mel{
+    background-color: rgb(242, 115, 83);
 }
-#toranjo{
-    background-color: rgba(254, 111, 1, 0.438);
-    padding: 5px;
-    width: 100%;
-    margin: 0;
+.frutas.toranjo{
+    background-color: rgb(254, 111, 1);
 }
-#mamas{
-    background-color: rgba(255, 64, 21, 0.452);
-    padding: 5px;
-    width: 100%;
-    margin: 0;
+.frutas.mamas{
+    background-color: rgb(255, 64, 21);
 }
 
 footer{
     text-align: center;
 }
-#hidden{
+div.hidden{
     display: none;
 }
-#hidden.active{
+div.hidden.active{
     display: block;
     margin: auto;
+    width: 98%;
     max-width: 800px;
     text-align: justify;
     border-radius: 10px;
     padding: 15px;
     background-color: rgba(84, 199, 38, 0.774);
 }
-#tfund{
+div#tfund{
     padding: 15px;
-    background-color: rgba(189, 47, 25, 0.699);
+    background-color: rgba(189, 47, 25, 0.705);
+}
+
+@media (max-width:500px) {
+    header{
+        margin: 0;
+    }
+    body {
+            max-width: 350px;
+            margin: 0;
+            background-color: var(--corFundo);
+            background-image: none;
+        }
+    article {
+            height: 100%;
+            padding: 15px;
+            background-color: var(--cor2);
+            margin: auto;
+            max-width: 350px;
+            text-align: justify;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+
+    div.hidden.active {
+        display: block;
+        margin: auto;
+        width: 95%;
+        max-width: 800px;
+        text-align: justify;
+        border-radius: 10px;
+        padding: 15px;
+        background-color: rgba(84, 199, 38, 0.774);
+        }
 }

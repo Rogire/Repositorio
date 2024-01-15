@@ -244,11 +244,9 @@ li.item{
     background-color: #313131;
     box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.534);
     display: flex;
-    text-decoration: none;
     width: 150px;
-    height: 45px;
+    height: 60px;
     border-radius: 2px;
-    text-align: center;
     margin: 10px;
     padding:5px;
     transition: all 0.5s ease-in-out;
@@ -259,6 +257,10 @@ li.item:hover{
     background-color:#31313196;
     transition: all 0.4s ease-in-out;
     transform: translateY(-15%) translateX(20%);
+}
+li.item>a{
+    text-align: center;
+    text-decoration: none;
 }
 footer{
     margin: auto;
