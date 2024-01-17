@@ -267,6 +267,39 @@ footer{
     text-align: center;
 }
 
+@media (max-width:600px) 
+{
+    body {
+        background-color: #68594A;
+        background-image: url('fundoParallax/fundoMob.png');
+        background-repeat:no-repeat;
+        
+        background-size: cover;
+    }
+    div.apresent{
+        width: 98%;
+    }
+        .apresent>span {
+            width: 1px;
+        }
+    
+        div.eta {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        div.container {
+            display: flex;
+            flex-direction: column;
+        }
+    div.boxes.mob{
+        display: flex;
+        flex-direction: row;
+    }
+}
+/*
 @media (max-width:1200px) 
 {
     body
@@ -291,3 +324,4 @@ footer{
     }
 
 }
+*/

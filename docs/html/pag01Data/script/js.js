@@ -55,7 +55,7 @@ function scrollTo(e){
 
 const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
-        console.log(entry)
+        //console.log(entry)
         if(entry.isIntersecting){
             entry.target.classList.toggle('show');
         } else{

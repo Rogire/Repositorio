@@ -71,11 +71,31 @@ section.conteudo.pal2{
     background-color: transparent;
 }
 #gambiarra, .ima{
-    margin: 0;
+    
     padding: 10px;
-    display: block;
-    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: justify;
     background-color: var(--corBeg);
+}
+
+div.imgD{
+    transform: translateX(-100%);
+    text-align: center;
+}
+
+div.imgD.show{
+    transform: translateX(0%);
+    transition: 1s all;
+}
+
+.sp1{
+    margin-right: 120px;
+}
+
+span.gambs2
+{
+    text-align: justify;
 }
 img{
     height: 300px;
@@ -101,10 +121,9 @@ div.parallax.parallax1{
 }
 div.parallax.parallax2{
    background-image: url('imagens/notebas.webp');
-   width: 100%;
-   background-position: center center;
-   
+   background-size: cover;
 }
+
 .ima{
     line-height: 1.5em;
     width: 100%;
@@ -195,10 +214,17 @@ div.cartao.show{
         width: 250px;
         height: auto;
     }
-
+    section.paralal{
+        width: 98%;
+    }
+    .parallax{
+        height: 60vh;
+    }
     .pimg {
-        font-size: 1.5em;
+        font-size: 1.3em;
         display: inline-block;
+        width: 70%;
+        margin: auto;
     }
     .ima{
         padding: 0;

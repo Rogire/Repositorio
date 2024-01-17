@@ -17,6 +17,8 @@ body{
 }
 
 header{
+    background-color: var(--cor3);
+    border-bottom: 1px solid rgb(131, 70, 1);
     color: #fff;
     height: 100px;
     padding: 10px;
@@ -29,6 +31,9 @@ nav{
     margin: 15px;
     display: flex;
     justify-content: space-around;
+}
+nav>a{
+    background-color: transparent;
 }
 p{
     margin: 15px;
@@ -43,16 +48,16 @@ p.text{
     width: 250px;
 }
 div.parallax{
-    height: 300px;
-    width: 700px;
     
+    height: 70%;
+    width: 70%;
     background-image: url(imagens/laranjas.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
     position: absolute;
     right: 5%;
-    top: 30%;
+    top: 16%;
 }
 h4, select{
     background-color: var(--cor2);
@@ -77,6 +82,9 @@ a{
 }
 a:hover{
     color: lightgray;
+}
+.semf{
+    background-color: transparent;
 }
 .trans{
     opacity: 0;

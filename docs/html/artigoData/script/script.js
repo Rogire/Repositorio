@@ -17,7 +17,7 @@ tome.addEventListener('click', ()=>{
     else
     {
         tome.value=val;
-        scroll('.main')
+        scroll('h1.main')
     }
     
 

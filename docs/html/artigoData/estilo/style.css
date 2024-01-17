@@ -153,7 +153,7 @@ div#tfund{
         margin: 0;
     }
     body {
-            max-width: 350px;
+            max-width: 100%;
             margin: 0;
             background-color: var(--corFundo);
             background-image: none;
@@ -162,8 +162,8 @@ div#tfund{
             height: 100%;
             padding: 15px;
             background-color: var(--cor2);
-            margin: auto;
-            max-width: 350px;
+            margin: 0;
+            max-width: 100%;
             text-align: justify;
             border-radius: 10px;
             box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);

@@ -10,4 +10,7 @@ const Observer = new IntersectionObserver((entries) => {
 });
 
 const hiddenElements = document.querySelectorAll(".cartao");
+const dinamicImages = document.querySelectorAll(".imgD");
+
 hiddenElements.forEach((el) => Observer.observe(el));
+dinamicImages.forEach((el)=>Observer.observe(el));
