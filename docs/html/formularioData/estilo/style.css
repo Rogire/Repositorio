@@ -57,7 +57,7 @@ div.parallax{
     background-attachment: fixed;
     position: absolute;
     right: 5%;
-    top: 16%;
+    top: 21%;
 }
 h4, select{
     background-color: var(--cor2);
@@ -89,12 +89,6 @@ a:hover{
 .trans{
     opacity: 0;
     transition: all 1s;
-}
-
-.show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateX(0);
 }
 
 /*formulário*/
