@@ -347,7 +347,7 @@ let data =
         let FACTORIAL_SEARCH = search(data.formula, FACTORIAL);
       
         //Arrumar o erro do BASE POWER
-        console.log(data.formula);
+        
         const BASES=GetPowerBase(data.formula,POWER_SEARCH);
         BASES.forEach(base=>{
           
@@ -360,13 +360,13 @@ let data =
 
         //Arrumar o erro do FATORIAL
         const FATB = getFatorialBase(data.formula,FACTORIAL_SEARCH); 
-        console.log(FATB)
+        
         FATB.forEach(fat=>{
           formula_str = formula_str.replace(fat.toReplace,fat.replacement);
           
         })
         let res;
-        console.log(formula_str);
+        
         try {
           res = eval(formula_str);
         } catch (error) {
@@ -403,7 +403,7 @@ let data =
       array.forEach( (element,index)=>{
           if(element == keyword) search_result.push(index); 
       });
-      console.log(search_result)
+      
       return search_result;
   }
 
@@ -457,7 +457,7 @@ let data =
       let contP = 0;
       let proxInd = fat_index + 1;
       let proxInput = formula[proxInd];
-      console.log(proxInd,proxInput)
+      
 
       if (proxInput == FACTORIAL) {
         factorial_seq++;
@@ -485,7 +485,7 @@ let data =
         indexA--;
       }
       let num_str = fb.join('');
-      console.log(num_str,formula)
+      
       const factorial = "fatorial(",
         close_p = ")";
       let times = factorial_seq + 1;
