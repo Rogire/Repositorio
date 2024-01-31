@@ -371,7 +371,7 @@ let data =
           res = eval(formula_str);
         } catch (error) {
           if (error instanceof SyntaxError) {
-            res = "Syntax Error!";
+            res = "Equação inválida";
             AtualizarResSaida(res);
             return;
           }
