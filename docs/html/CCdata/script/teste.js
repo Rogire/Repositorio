@@ -12,4 +12,4 @@ function fatorial(num) {
 }
 
 
-console.log(eval("5+fatorial(6)"))
+console.log(eval("Math.sqrt((Math.pow(Math.cos(30)),2))"));

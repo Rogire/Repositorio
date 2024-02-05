@@ -284,8 +284,15 @@ let data =
       }
       else if(botao.tipo == "trigo_function")
       {
+
+        if (data.formula.length > 0 && !Anterior(data.formula, data.formula.length)) 
+        {
+          data.operation.push(botao.simbolo + "(");
+          data.formula.push("*" + botao.formula);
+        } else {
           data.operation.push(botao.simbolo + "(");
           data.formula.push(botao.formula);
+        }
       }
       else if(botao.tipo == "math_function")
       {
@@ -316,8 +323,18 @@ let data =
           {
               simb = botao.simbolo + "(";
               form = botao.formula + "(";
-              data.operation.push(simb);
-              data.formula.push(form);
+              console.log(data.formula,data.formula.length)
+
+              if (data.formula.length>0 &&!Anterior(data.formula, data.formula.length)) 
+              {
+                data.operation.push(simb);
+                data.formula.push("*" + form);
+              } 
+              else 
+              {
+                data.operation.push(simb);
+                data.formula.push(form);
+              }
           }
       }
       else if(botao.tipo == "key")
@@ -554,4 +571,19 @@ let data =
     }
 
     return fat;
+  }
+
+  //Fazer multiplicação sem precisar colocar o 'x'
+  function Anterior(dataFor,ind)
+  {
+    
+    let ant = dataFor[ind-1];
+    console.log(ant);
+
+    OPERADORES.forEach(OPERADOR=>{
+      if(ant == OPERADOR)
+        return true;
+      else
+        return false;
+    })
   }
