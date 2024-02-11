@@ -575,7 +575,7 @@ let data =
   }
 
   //Fazer multiplicação sem precisar colocar o 'x'
-  function (dataFor,ind)
+  function Anterior(dataFor,ind)
   {
     
     let ant = dataFor[ind-1];
