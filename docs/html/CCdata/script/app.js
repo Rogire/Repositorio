@@ -284,7 +284,7 @@ let data =
       }
       else if(botao.tipo == "trigo_function")
       {
-        console.log(Anterior(data.formula, data.formula.length));
+       
         if (data.formula.length > 0 && !Anterior(data.formula, data.formula.length)) 
         {
           data.operation.push(botao.simbolo + "(");
@@ -323,7 +323,7 @@ let data =
           {
               simb = botao.simbolo + "(";
               form = botao.formula + "(";
-              console.log(data.formula,data.formula.length)
+              
 
               if (data.formula.length>0 &&!Anterior(data.formula, data.formula.length)) 
               {
@@ -359,7 +359,7 @@ let data =
       else if(botao.tipo == "calculate")
       {
         let formula_str = data.formula.join("");
-        console.log(formula_str)
+    
         //ARRUMAR POWER e FATORIAL
         let POWER_SEARCH = search(data.formula, POWER);
         let FACTORIAL_SEARCH = search(data.formula, FACTORIAL);
@@ -575,11 +575,11 @@ let data =
   }
 
   //Fazer multiplicação sem precisar colocar o 'x'
-  function Anterior(dataFor,ind)
+  function (dataFor,ind)
   {
     
     let ant = dataFor[ind-1];
-    console.log(ant);
+    
 
 
     for (let i = 0; i < OPERADORES.length; i++) {
