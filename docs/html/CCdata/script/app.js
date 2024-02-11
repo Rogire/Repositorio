@@ -237,7 +237,7 @@ let data =
 
       const row = document.querySelector(".row:last-child");
 
-      row.innerHTML += `<button id="${botao.nome}">${botao.simbolo}</button>`;
+      row.innerHTML += `<button id="${botao.nome}" class="${botao.tipo}">${botao.simbolo}</button>`;
       bot_add++;
     });
   }

@@ -1,139 +1,215 @@
-@charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200&display=swap');
-*{
+* {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto Condensed';
-    font-weight: bolder;
-}
-body{
-    background-color: rgb(7, 7, 73);
+    background-origin: padding-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-main{
-    background-color: rgb(82, 81, 81);
-    width: 40vw;
-    height: 80vh;
-    margin: auto;
+html {
+    font-size: 16px;
+    background-color: #636363;
+}
+
+.calculadora {
     position: absolute;
-    padding: 15px;
-    left: 30%;
-    top: 10%;
-    border-radius: 15px;
-    box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.671);
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
 }
 
-section.resultados{
-    position: absolute;
-    width: 40vw;
+.calc-c {
+    background-color: #000000d0;
+
+    
+    height: 200px;
+
+    border-radius: 30px 30px 0 0;
 }
 
-div.aux{
-    width: 40%;
-    height: 150px;
-}
-
-div.contas{
-    margin: 10px;
-    width: 97%;
-    height:60px;
-    background-color: #fff;
-    margin: 0;
-    border: none;
-}
-
-section.botoes{
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-div.operacoesE{
+.saida {
     width: 100%;
-    height: 80px;
+    ;
+}
+
+.conta {
+    width: 600px;
+    height: 70px;
+
+    color: #878787;
+
+    font-size: 1.9em;
+    font-weight: bold;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.conta .value {
+    position: absolute;
+
+    bottom: 5px;
+    right: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.res {
+    width: 600px;
+    height: 140px;
+
+    color: #FFF;
+
+    font-size: 2.6em;
+    font-weight: bold;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.res .value {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.input {
+    background-color: #FFF;
+
+    border-radius: 0 0 25px 25px;
+    border: 1px solid #1d1d1d;
+    height: 340px;
+}
+
+.row {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    margin: 0;
+    align-items: center;
 }
 
-div.botao{
-    margin: 3px;
-    width: 65px;
-    height:20px;
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.418);
-}
+.row button {
+    width: 50px;
+    height: 50px;
 
-div.botao:hover{
-    background-color: gray;
+    font-size: 1.5em;
+
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+
+    margin: 8px;
+
     cursor: pointer;
 }
 
-div.botao:active{
-    color: #fff;
+.row button:hover {
+    font-weight: bold;
 }
 
-.botao.g{
-    height: 23px;
+.row #calculate {
+    color: #FFF;
+    background-color: #46e0bc;
+    width: 121px;
+    border-radius: 50px;
 }
 
-section.numEres{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.row #delete {
+    color: #FFF;
+    background-color: #e05046;
 }
 
-div.numeros{
-    display: flex;
-    flex-direction: row;
+#division,
+#multiplication,
+#subtraction,
+#addition {
+    color: #18b893;
 }
 
-div.operacoes{
-    display: grid;
-    flex-direction: row;
-    margin-right: 5px;
+.input button span {
+    font-size: 0.6em;
+    position: absolute;
 }
 
-.op{
-    display: flex;
-    flex-direction: row;
+.active-angle {
+    background-color: #1d1d1d !important;
+    color: #FFF !important;
+    border-radius: 10px !important;
 }
 
-
-section.gambiarra{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-right: 5px;
-}
-
-div.num4{
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-}
-
-.botao.ce{
-    background-color: red;
-    color: #fff;
-    font-weight: bolder;
-}
-.botao.ce:active{
-    color: black;
-}
-
-div#c1{
-    text-align: left;
-    padding: 5px;
-}
-
-div#c2{
-    text-align:right;
-    padding: 5px;
+@media (max-width:500px) 
+{
+    html,body{
+        overflow-x: hidden;
+    }
+    .calculadora{
+        width: 100vw;
+    }   
+    .input{
+        height: 400px;
+    } 
+    .row button{
+        margin: 0;
+        width: 50px;
+        height: 70px;
+        font-size: 1.5em;
+    }
+    button.trigo_function{
+        font-size: 1.2em;
+    }
+    .conta 
+    {
+          
+        height: 70px;
+        width: 100vw;
+        color: #878787;
+    
+        font-size: 1.9em;
+        font-weight: bold;
+    
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .conta .value 
+    {
+       position: absolute;
+        bottom: 5px;
+        right: 10px;
+    
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .res 
+    {
+    width: 100vw;
+    height: 140px;
+    
+    color: #FFF;
+    
+    font-size: 2.6em;
+    font-weight: bold;
+    
+    overflow: hidden;
+    position: relative;
+    }
+    
+    .res .value 
+    {
+    position: absolute;
+    
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    }
 }
