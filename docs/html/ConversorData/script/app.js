@@ -75,11 +75,8 @@ function setSucessFor(box, moeda1, moeda2){
         val = i;
     }
     const dadosConvertido = values[val];
-    alinhar=document.createElement('span.teste');
-
     caixa.textContent =(numV/dadosConvertido).toFixed(2);
     caixa.classList.add("active");
-  //  console.log(param, convertido, num.value, val);
 
   } catch (err) {
     let caixa = document.querySelector("section.res");

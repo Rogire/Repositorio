@@ -94,9 +94,8 @@ section.res{
     
     display: none;
     position: absolute;
-    top: 48%;
+    top: 70%;
     right: 48%;
-    margin-top: 150px;
     width: 150px;
     height: 50px;
 }
@@ -117,4 +116,89 @@ section.res{
 
 .res.active.erro>p{
     margin: auto;
+}
+
+@media (max-width:500px)
+{
+    *{
+        margin: 0;
+    }
+    html,body{
+        overflow-x: hidden;
+    }
+    body 
+        {
+            
+            position: relative;
+            background-image: url(fundoconv.jpg);
+            background-position: center center;
+            background-size: cover;
+            background-color: var(--corfundo);
+            height: 98vh;
+            width: 100vw;
+            
+        }
+    div.container{
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+    }
+    
+    div.Mct{
+        position: relative;
+        width: 99%;
+        height: 99%;
+        
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        
+    }
+    div.gambssec{
+        display: flex;
+            flex-direction: column;
+    }
+    div.gambs{
+        display: flex;
+            flex-direction: column;
+    }
+    img.seta{
+        transform: rotate(90deg);
+    }
+    div.ext1.lat{
+        height: 70px;
+    }
+    section.res {
+        background-color: var(--coraux);
+        position: fixed;
+        
+        color: #fff;
+        font-size: 30px;
+        font-weight: bolder;
+        border-radius: 15px;
+    
+        display: none;
+        position: relative;
+        top: 100%;
+        width: 150px;
+        height: 50px;
+        }
+    
+    .res.active 
+    {
+    background-color: var(--corfundo);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100px;
+    border-radius: 0px 0px 0px 0px;
+    
+    }
+    div.ext2.lat{
+        height: 0;
+    }
 }
