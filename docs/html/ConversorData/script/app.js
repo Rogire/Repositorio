@@ -53,7 +53,7 @@ function setSucessFor(box, moeda1, moeda2){
 // função que decodifico o json e calcula a taxa
  async function convert(param,convertido) {
     let caixa = document.querySelector("section.res");
-    numV=Valor.value;
+    let numV=Valor.value;
   try {
     const response = await fetch(param);
         if (!response) 
@@ -75,7 +75,10 @@ function setSucessFor(box, moeda1, moeda2){
         val = i;
     }
     const dadosConvertido = values[val];
-    caixa.textContent =(numV/dadosConvertido).toFixed(2);
+    //caixa.textContent =(numV/dadosConvertido).toFixed(2);
+    let ValConvertido = (numV / dadosConvertido);
+    caixa.textContent = ValConvertido.toLocaleString(pt-br,{style:"currency",currency:"param"});
+
     caixa.classList.add("active");
 
   } catch (err) {
