@@ -393,10 +393,10 @@ let data =
             return;
           }
         }
-        ans = res;
+        let ans = res.toFixed(10);
         data.operation = [res];
         data.formula = [res];
-        AtualizarResSaida(res);
+        AtualizarResSaida(ans);
         return;
       }
       AtualizarOpSaida(data.operation.join(''));
