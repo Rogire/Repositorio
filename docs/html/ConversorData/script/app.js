@@ -77,7 +77,7 @@ function setSucessFor(box, moeda1, moeda2){
     const dadosConvertido = values[val];
     //caixa.textContent =(numV/dadosConvertido).toFixed(2);
     let ValConvertido = (numV / dadosConvertido);
-    caixa.textContent = ValConvertido.toLocaleString(pt-br,{style:"currency",currency:"param"});
+    caixa.textContent = ValConvertido.toLocaleString({style:"currency",currency:"param"});
 
     caixa.classList.add("active");
 
