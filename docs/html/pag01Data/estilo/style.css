@@ -15,6 +15,7 @@ body{
     background-color: rgb(95, 149, 201);
     min-height: 100vh;
     min-width: 400px;
+    width: 100vw;
     background-image: url('fundoParallax/pexels-nino-souza-2800552.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -33,9 +34,9 @@ header> h1{
 }
 
 main{
-    max-width: 100%;
+    width: 100vw;
     padding: 5px;
-    margin: 15px;
+    margin: 0px;
 }
 div.apresent{
     text-indent: 10px;
@@ -59,6 +60,7 @@ a{
 }
 hr{
     margin: 0;
+    width: 100vw;
     padding: 0;
     height: 5px;
     border: none;
@@ -139,7 +141,7 @@ div.conta>p{
 
 .ler:hover{
     background-color: transparent;
-    color: #ffffff;
+    color: #fff;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -269,13 +271,22 @@ footer{
 
 @media (max-width:500px) 
 {
+    html,body{
+        overflow-x: hidden;
+    }
     body {
+        position: relative;
         background-color: #68594A;
         background-image: url('fundoParallax/fundoMob.png');
         background-repeat:no-repeat;
         
         background-size: cover;
     }
+        h2 {
+            color: aliceblue;
+            font-size: 20px;
+            text-align: center;
+        }
     div.apresent{
         width: 98%;
     }
