@@ -394,7 +394,7 @@ let data =
             return;
           }
         }
-        let ans = res.toFixed(10);
+         let ans = res.length > 10 ? res.toFixed(10) : res;
         data.operation = [res];
         data.formula = [res];
         AtualizarResSaida(ans);
