@@ -264,6 +264,32 @@ li.item>a{
     text-align: center;
     text-decoration: none;
 }
+
+li.item.react{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bolder;
+    background-color: #5ED3F3;
+}
+
+li.item.JS {
+    text-align: center;
+    font-size: 1.2em;
+    color: #000;
+    font-weight: bolder;
+    background-color: yellow;
+}
+
+li.item.HTML {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bolder;
+    background-color: #F16A30;
+}
+li.cat:hover{
+    transform: none;
+    transition: none;
+}
 footer{
     margin: auto;
     text-align: center;
