@@ -1,3 +1,5 @@
+const { number } = require("mathjs");
+
 //elementos DOM
 const botao = document.querySelector('form');
 const cur1 = document.querySelector('select#cur1');
@@ -54,6 +56,8 @@ function setSucessFor(box, moeda1, moeda2){
  async function convert(param,convertido) {
     let caixa = document.querySelector("section.res");
     let numV=Valor.value;
+    if (numV<0)
+      throw new Error("Insira um valor válido");
   try {
     const response = await fetch(param);
         if (!response) 
@@ -84,6 +88,7 @@ function setSucessFor(box, moeda1, moeda2){
   } catch (err) {
     let caixa = document.querySelector("section.res");
     caixa.textContent = err.message;
+    return;
   }
 }
 
