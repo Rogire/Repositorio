@@ -83,6 +83,13 @@ input.in{
     border-radius: 5px;
     box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.486);
 }
+input.in:hover{
+    cursor: pointer;
+}
+input.in:active{
+    background-color: #fff;
+    color: black;
+}
 input.in.numb{
     background-color: gray;
     border: 1px solid black;
