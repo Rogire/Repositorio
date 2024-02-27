@@ -1,5 +1,3 @@
-const { number } = require("mathjs");
-
 //elementos DOM
 const botao = document.querySelector('form');
 const cur1 = document.querySelector('select#cur1');
@@ -56,9 +54,10 @@ function setSucessFor(box, moeda1, moeda2){
  async function convert(param,convertido) {
     let caixa = document.querySelector("section.res");
     let numV=Valor.value;
-    if (numV<0)
-      throw new Error("Insira um valor válido");
   try {
+    if(numV<0)
+      throw new Error("Selecione um valor válido");
+    
     const response = await fetch(param);
         if (!response) 
           throw new Error("Erro de conexão, verifique sua internet");
@@ -68,15 +67,15 @@ function setSucessFor(box, moeda1, moeda2){
           throw new Error("Erro");
 
     //converte o objeto json para array
-    keys = Object.keys(DadosConversao.conversion_rates);
-    values = Object.values(DadosConversao.conversion_rates);
+    let keys = Object.keys(DadosConversao.conversion_rates);
+    let values = Object.values(DadosConversao.conversion_rates);
 
     let val=0;
     //o valor de i resultante é igual ao index da moeda selecionada na array values
     for (let i = 0; i < keys.length; i++) 
     {
         if(keys[i]==convertido)
-        val = i;
+          val = i;
     }
     const dadosConvertido = values[val];
     //caixa.textContent =(numV/dadosConvertido).toFixed(2);
@@ -88,7 +87,6 @@ function setSucessFor(box, moeda1, moeda2){
   } catch (err) {
     let caixa = document.querySelector("section.res");
     caixa.textContent = err.message;
-    return;
   }
 }
 
