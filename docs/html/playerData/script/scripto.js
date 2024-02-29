@@ -2,19 +2,19 @@ let musicas = [
   {
     título: "Guitarra",
     artista: "Jão pedro",
-    src: "musicas/No Mercy - TrackTribe.mp3",
+    src: "html/playerData/musicas/No Mercy - TrackTribe.mp3",
     img: "html/playerData/imagens/ana-grave-gHcWaeldgtQ-unsplash (1).jpg",
   },
   {
     título: "Samba",
     artista: "Jão pedrin",
-    src: "musicas/Dove Love - Quincas Moreira.mp3",
+    src: "html/playerData/musicas/Dove Love - Quincas Moreira.mp3",
     img: "html/playerData/imagens/ferran-feixas-e5mTixNe02M-unsplash.jpg",
   },
   {
     título: "Vidro",
     artista: "John pedro",
-    src: "musicas/Glass - Anno Domini Beats.mp3",
+    src: "html/playerData/musicas/Glass - Anno Domini Beats.mp3",
     img: "html/playerData/imagens/quaid-lagan-B68Bp4kGxP8-unsplash.jpg",
   },
 ];
