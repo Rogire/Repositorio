@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <title>Player</title>
+    <link rel="stylesheet" href="html/playerData/estilo/style.css">
+</head>
+<body>
+    <a href="index.html"><img src="html/media/imagens/atras.png" alt="voltar" class="img" style="width: 50px;"></a>
+    <main>
+        <img src="imagens/quaid-lagan-B68Bp4kGxP8-unsplash.jpg">
+        
+        <div class="descmusic">
+            <h2>Nome da música</h2>
+        <p>João Tinti</p>
+        </div>
+        <div class="duração">
+            <div id="barra">
+                <progress value="0" max="1"></progress>
+                <div class="ponto"></div>
+            </div>
+            <div class="tempo">
+                <p id="inicio"> 0:00</p>
+                <p id="fim"> 3:40</p>
+            </div>
+        </div>
+        <div id="player">
+            <i class="fas fa-step-backward setas anterior"></i>
+            <i class="fas fa-play-circle botao-play"></i>
+            <i class="fas fa-pause-circle botao-pause"></i>
+            <i class="fas fa-step-forward setas proximo"></i>
+        </div>
+        <audio src="musicas/No Mercy - TrackTribe.mp3"></audio>
+        
+    </main>
+    <script src="html/playerData/script/scripto.js"></script>
+</body>
+</html>

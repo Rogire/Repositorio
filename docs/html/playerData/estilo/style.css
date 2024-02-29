@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root{
+    --corfundo:#393E52;
+    --cor2:#2D3040;
+    --cor3:#666E91;
+}
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+body, main{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #ddd;
+}
+body{
+    background-color: var(--corfundo);
+}
+img{
+    width: 300px;
+    height: 300px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.212);
+}
+.descmusic{
+    width: 300px;
+    padding: 10px;
+    margin: 5px 0px 5px 0px;
+    line-height: 0.5em;
+}
+
+.descmusic > p {
+    font-style: italic;
+}
+.duração{
+    width: 300px;
+    margin: 25px 0px 0px 0px;
+}
+#barra{
+    width:100%;
+    border: 1px solid var(--cor2);
+    border-radius: 5px;
+    height: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+progress{
+    height: 6px;
+    width: 0%;
+    background-color: var(--corfundo);
+}
+.ponto{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-left: -2px;
+}
+.tempo{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+#player{
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px 0px 0px 0px;
+}
+.botao-play, .botao-pause{
+    font-size: 50px;
+    cursor: pointer;
+}
+.setas{
+    font-size: 40px;
+    cursor: pointer;
+}
+.botao-pause{
+    display: none;
+}
+
+/*Também funcionaria se fosse desse jeito*/
+/*.botao-pause.active{
+    display: flex;
+}
+.botao-play.active{
+    display: none;
+}*/
+
+.fas:hover{
+    color: var(--cor3);
+}
