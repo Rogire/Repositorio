@@ -24,7 +24,7 @@ let musicas = [
 const mus = document.querySelector('audio');
 let indexMusica = 0;
 const fim = document.querySelector('#fim');
-const imagem = document.querySelector('img');
+const imagem = document.querySelector('img#img');
 const nomemus = document.querySelector('.descmusic h2');
 const nomeart = document.querySelector('.descmusic p');
 renderizarMusica(indexMusica);
@@ -86,6 +86,8 @@ function attBarra() {
 
     let barra = document.querySelector('progress');
     barra.style.width = Math.floor((mus.currentTime / mus.duration) * 100) + '%';
+
+
 }
 
 function converter(segundos){

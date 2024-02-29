@@ -51,7 +51,7 @@ img{
 progress{
     height: 6px;
     width: 0%;
-    background-color: var(--corfundo);
+    background-color: #fff;
 }
 .ponto{
     width: 20px;
@@ -83,14 +83,12 @@ progress{
 .botao-pause{
     display: none;
 }
-
-/*Também funcionaria se fosse desse jeito*/
-/*.botao-pause.active{
-    display: flex;
+img.voltar{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
 }
-.botao-play.active{
-    display: none;
-}*/
 
 .fas:hover{
     color: var(--cor3);
