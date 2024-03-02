@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <title>Player</title>
     <link rel="stylesheet" href="html/playerData/estilo/style.css">
+    <script defer src="https://kit.fontawesome.com/3b045c7f31.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <a href="index.html"><img class="voltar" src="html/media/imagens/atras.png" alt="voltar" class="img"></a>
     <main>
         <img id="img" title="img" src="html/playerData/imagens/quaid-lagan-B68Bp4kGxP8-unsplash.jpg">
-        
+         
         <div class="descmusic">
             <h2>Nome da música</h2>
         <p>João Tinti</p>
         </div>
         <div class="duração">
             <div id="barra">
+                <input type="range" class="RangeMus" max="100" value="0" step="1">
                 <progress  value="0" max="1"></progress>
                 <div class="ponto"></div>
             </div>
@@ -31,12 +31,15 @@
         <div id="player">
             <i class="fas fa-step-backward setas anterior"></i>
             <i class="fas fa-play-circle botao-play"></i>
-            <i class="fas fa-pause-circle botao-pause"></i>
+            <i class="fas fa-pause-circle botao-pause" style="display: none;"></i>
             <i class="fas fa-step-forward setas proximo"></i>
+            <i class="fa-solid fa-volume-high botao-vol"></i>
+            <input type="range" id="volume" value="0.5" min="0" max="1" step="0.01">
         </div>
         <audio src="html/playerData/musicas/No Mercy - TrackTribe.mp3"></audio>
         
     </main>
     <script src="html/playerData/script/scripto.js"></script>
+   
 </body>
 </html>

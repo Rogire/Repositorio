@@ -53,6 +53,22 @@ progress{
     width: 0%;
     background-color: #fff;
 }
+input.RangeMus{
+    position: absolute;
+    width: 300px;
+    height: 0px;
+}
+input[type=range]::-moz-focus-outer {
+    border: 0;
+    outline: none;
+    display: hidden;
+}
+input[type=range]:focus{
+    border: 0;
+    outline: none;
+    display: hidden;
+}
+
 .ponto{
     width: 20px;
     height: 20px;
@@ -66,13 +82,13 @@ progress{
     justify-content: space-between;
 }
 #player{
-    width: 300px;
+    width: 400px;
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
     align-items: center;
     margin: 15px 0px 0px 0px;
 }
-.botao-play, .botao-pause{
+.botao-play, .botao-pause,.botao-vol{
     font-size: 50px;
     cursor: pointer;
 }
@@ -92,4 +108,14 @@ img.voltar{
 
 .fas:hover{
     color: var(--cor3);
+}
+
+#volume{
+    width: 150px;
+    display: none;
+    transition: all 1s ease-in-out;
+}
+#volume.active{
+    display: block;
+    transition: all 1s ease-in-out;
 }
