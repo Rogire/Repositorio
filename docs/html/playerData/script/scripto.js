@@ -31,6 +31,8 @@ let musicas = [
     const botaopau = document.querySelector('.botao-pause');
     const botvoltar = document.querySelector('.anterior');
     const botfrente= document.querySelector('.proximo');
+    const barra = document.querySelector('progress');
+    const cBar = document.querySelector('div#barra')
     const botVol = document.querySelector('.botao-vol')
     const rangeVol = document.querySelector("#volume");
     renderizarMusica(indexMusica);
@@ -38,6 +40,8 @@ let musicas = [
 // eventos
 botVol.addEventListener("click",   ()=> rangeVol.classList.toggle('active'));
 rMus.addEventListener('change',    ()=> mus.currentTime = (mus.duration*rMus.value)/100);
+cBar.addEventListener('mouseover',()=>rMus.classList.add('active'));
+cBar.addEventListener('mouseout',()=>rMus.classList.remove('active'));
 
 botaoplay.addEventListener('click', tocarMusica);
 botaopau.addEventListener('click', pausarMusica);
@@ -110,7 +114,6 @@ function volumeChange(){
 function attBarra() {
     let tempodec = document.querySelector('#inicio')
     tempodec.textContent = converter(Math.floor(mus.currentTime));
-    let barra = document.querySelector('progress');
     let pAt = mus.currentTime / mus.duration;
     barra.style.width = Math.floor(pAt*100) + '%';
     

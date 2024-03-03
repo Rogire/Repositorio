@@ -57,6 +57,10 @@ input.RangeMus{
     position: absolute;
     width: 300px;
     height: 0px;
+    display: none;
+}
+input.RangeMus.active{
+    display: block;
 }
 input[type=range]::-moz-focus-outer {
     border: 0;
