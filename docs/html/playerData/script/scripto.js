@@ -40,8 +40,8 @@ let musicas = [
 // eventos
 botVol.addEventListener("click",   ()=> rangeVol.classList.toggle('active'));
 rMus.addEventListener('change',    ()=> mus.currentTime = (mus.duration*rMus.value)/100);
-cBar.addEventListener('mouseover',()=>rMus.classList.add('active'));
-cBar.addEventListener('mouseout',()=>rMus.classList.remove('active'));
+cBar.addEventListener('mouseover', ()=>rMus.classList.add('active'));
+cBar.addEventListener('mouseout',  ()=>rMus.classList.remove('active'));
 
 botaoplay.addEventListener('click', tocarMusica);
 botaopau.addEventListener('click', pausarMusica);

@@ -123,3 +123,20 @@ img.voltar{
     display: block;
     transition: all 1s ease-in-out;
 }
+
+@media (max-width:500px)
+{
+    *{
+        margin: 0;
+    }
+    html,body {
+            overflow-x: hidden;
+        }
+
+    body{
+        width: 98vw;
+        position: relative;
+
+    }
+    
+}
