@@ -394,10 +394,11 @@ let data =
             return;
           }
         }
+        console.log(res)
         res = String(res).length > 10 ? res.toFixed(10) : res;
         data.operation = [res];
         data.formula = [res];
-        res = Infinity?"Diverge para infinito":res;
+        res == Infinity?"Diverge para infinito":res;
         AtualizarResSaida(res);
         return;
       }
