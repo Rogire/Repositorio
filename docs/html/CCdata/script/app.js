@@ -389,12 +389,13 @@ let data =
           res = eval(formula_str);
         } catch (error) {
           if (error instanceof SyntaxError) {
+            console.log(formula_str)
             res = "Equação inválida";
             AtualizarResSaida(res);
             return;
           }
         }
-        console.log(res)
+        console.log(formula_str)
         res = String(res).length > 10 ? res.toFixed(10) : res;
         data.operation = [res];
         data.formula = [res];
@@ -579,18 +580,11 @@ let data =
   //Fazer multiplicação sem precisar colocar o 'x'
   function Anterior(dataFor,ind)
   {
-    
-    let ant = dataFor[ind-1];
-    
-
-
-    for (let i = 0; i < OPERADORES.length; i++) {
-      if (ant == OPERADORES[i]) 
-      {
-        return true;
-      } 
-      else 
-        return false;
-      
-    }
+    return dataFor[ind-1] === "+" ||
+      dataFor[ind-1] === "-" ||
+      dataFor[ind-1] === "*" ||
+      dataFor[ind-1] === "/" ||
+      dataFor[ind-1] === "("
+      ? true
+      : false;
   }
