@@ -1,0 +1,163 @@
+@charset "UFT-8";
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --corfundo:#0A1A38;
+    --corAux:#A2874B;
+    --corTimer:#F7B320;
+    --corCmp1:#466EB8;
+    --corCmp2:#206BF7;
+}
+
+body
+{
+    background: linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863));
+    height: 100vh;
+}
+
+div.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+div.CLeft
+{
+    background-color: #fff56c62;
+    border-radius: 15px;
+    margin:15px;
+    width: 200px;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 10px;
+}
+
+div.CCntr{
+    position: absolute;
+    right: 20%;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 15%;
+    margin-top: 10%;
+    left: 15%;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: var(--corAux);
+    box-shadow: 7px 8px 8px rgba(0, 0, 0);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+div.timerC{
+    margin-bottom:5px;
+}
+input.tInp{
+    background-color: #926f22;
+    border-radius: 5px;
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.336);
+    padding: 10px;
+    border: none;
+    width: 100px;
+    height: 70px;
+    font-size: 90px;
+    margin: 2px;
+    font-family: "Inconsolata";
+}
+
+button.btn{
+    width: 70px;
+    height: 40px;
+    margin: 2px;
+    background-color: var(--corTimer);
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+button.btn.nt{
+    font-size: 20px;
+    width: 160px;
+    font-weight: normal;
+
+}
+button.btn:hover{
+    cursor: pointer;
+}
+button.btn:active{
+    background-color: lightgray;
+}
+
+div.cabeca{
+    display: flex;
+}
+
+select{
+    width: 150px;
+    height: 40px;
+     margin: 2px;
+    background-color: var(--corTimer);
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+option{
+    width: 70px;
+        height: 40px;
+        margin: 2px;
+        background-color: var(--corTimer);
+        font-size: 15px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.5);
+}
+div.setNT{
+    position: absolute;
+    display: flex;
+    top: 2%;
+    left: 17%;
+    flex-direction: column;
+    background-color: var(--corAux);
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 9px 8px 8px rgba(0, 0, 0, 0.74);
+}
+
+div.itenTimer{
+    background-color:#ffdd935d;
+    padding: 5px;
+    width: 190px;
+    margin-top: 10px;
+    border-radius: 0.3em;
+    box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.178);
+    font-family: "Inconsolata";
+}
+div.itenTimer:hover{
+    background-color:#ffdd93;
+    cursor:pointer;
+}
+div.iten{
+    background-color: #926f22;
+        border-radius: 5px;
+        box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.336);
+        padding: 10px;
+        border: none;
+        width: 100px;
+        height: 40px;
+        font-size: 30px;
+        margin: 2px;
+}
