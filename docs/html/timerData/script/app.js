@@ -15,6 +15,7 @@ let minV="00";
 let segV="00";
 let timer;
 alarm.src = opts[0].value;
+//}
 
 hora.addEventListener("change",()=>{
     if(hora.value.length >2 || hora.value < 0)
@@ -51,6 +52,7 @@ PP.addEventListener("click",()=>{
               seg.value = "0" + seg.value;
 
             document.title = `${hora.value}:${min.value}:${seg.value}`;
+            
             if (seg.value == 0) 
             {
                 if(min.value>0)
@@ -59,11 +61,21 @@ PP.addEventListener("click",()=>{
                     seg.value = 59;
                     formatar();
                 }
-                else if(min.value ==0 && hora.value >0)
+                else if(min.value == 0 && hora.value>0)
                 {
+                  if(seg.value == 0)
+                  {
+                    hora.value--;
+                    seg.value = 59;
+                    min.value = 59;
+                    formatar();
+                  }
+                  else
+                  {
                     hora.value--;
                     min.value= 59;
                     formatar();
+                  }
                 }
                 else   
                     formatar();
@@ -75,6 +87,7 @@ PP.addEventListener("click",()=>{
         PP.classList.remove("active");
         PP.classList.add("inactive");
         PP.textContent = "Iniciar";
+        document.title = "Timer";
         clearInterval(timer);
     }
 });
