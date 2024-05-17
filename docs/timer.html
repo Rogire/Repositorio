@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="html/timerData/style/style.css">
+
+    <link rel="stylesheet" media="(max-width:500px)" href="html/timerData/style/MediaQuery500.css">
+    <link rel="stylesheet" media="(min-width:800px)" href="html/timerData/style/MediaQuery900.css">
+
     <link rel="shortcut icon" href="html/media/imagens/Vexels-Office-Alarm-clock.512.png" type="image/x-icon">
     <title>Timer</title>
 </head>
@@ -34,9 +38,10 @@
                 <input type="number" class="tInp seg" value="00"></input>
             </div>
             <p class="Tname"></p>
-
-            <button title="tocar" class="btn inactive" id="PP" cont="0">iniciar</button>
-            <button title="mais cinco minutos"class="btn" id="addTime">+5 min</button>
+            <div>
+                <button title="tocar" class="btn inactive" id="PP" cont="0">iniciar</button>
+                <button title="mais cinco minutos"class="btn" id="addTime">+5 min</button>
+            </div>
         </div>
         
     </div>

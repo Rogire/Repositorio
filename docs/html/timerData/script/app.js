@@ -1,7 +1,6 @@
 const hora = document.querySelector(".hora");
 const min = document.querySelector(".min");
 const seg = document.querySelector(".seg");
-
 const PP = document.querySelector("button#PP");
 const add = document.querySelector("button#addTime");
 const newT = document.querySelector("button#addNewTimer");
@@ -10,24 +9,31 @@ const opts = document.querySelectorAll('[opt=optSel]');
 const cabeca = document.querySelector("div.cabeca");
 const playB = document.createElement("button");
 const pauseB = document.createElement("button");
-
+const alarm = document.createElement("audio");
+let hrV="00";
+let minV="00";
+let segV="00";
 let timer;
-let alarm = document.createElement("audio");
 alarm.src = opts[0].value;
 
 hora.addEventListener("change",()=>{
     if(hora.value.length >2 || hora.value < 0)
         hora.value = "00";
+
+    hrV =hora.value;
 })
 min.addEventListener("change", () => {
   if (min.value.length > 2 || min.value < 0 || min.value > 60)
     min.value = "00";
+
+  minV =min.value;
 });
 seg.addEventListener("change", () => {
   if (seg.value.length > 2 || seg.value < 0 || seg.value > 60)
     seg.value = "00";
-});
 
+  segV =seg.value;
+});
 PP.addEventListener("click",()=>{
     if(PP.classList.contains("inactive"))
     {
@@ -37,13 +43,14 @@ PP.addEventListener("click",()=>{
             if (seg.value >= 1) seg.value--;
             if (seg.value < 10 && seg.value.length == 1)
             seg.value = "0" + seg.value;
-
+            
             timer = setInterval(function time() {
             if(seg.value >=1)
                 seg.value--;
             if (seg.value < 10 && seg.value.length == 1)
               seg.value = "0" + seg.value;
 
+            document.title = `${hora.value}:${min.value}:${seg.value}`;
             if (seg.value == 0) 
             {
                 if(min.value>0)
@@ -81,19 +88,23 @@ const formatar=()=>{
     if (hora.value < 10 && hora.value.length == 1) hora.value = "0" + hora.value;
     if (min.value < 10 && min.value.length == 1) min.value = "0" + min.value;
 
+    if(min.value>60) min.value = "00";
+    if(seg.value>60) seg.value = "00";
+    
     if (hora.value == 0 && min.value == 0 && seg.value == 0) 
     {
-      alarm.play();
-      window.alert("Acabou o timer");
       clearInterval(timer);
+      alarm.play();
       PP.classList.remove("active");
       PP.classList.add("inactive");
       PP.textContent = "Iniciar";
+      document.title = "Timer";
+      acabou();
     }
 }
-console.log(alarm.src)
 newT.addEventListener("click",()=>{
-    document.body.style.backgroundColor="black";
+    document.body.style.background =
+      "linear-gradient(to bottom,rgba(10, 26, 56,0.9),rgba(63, 37, 21, 0.9))";
     //cria div container geral
     let setNT=document.createElement("div");
     //cria div container dos inputs e inputs
@@ -120,6 +131,16 @@ newT.addEventListener("click",()=>{
     inpHrNT.value = "00";
     inpMinNT.value = "00";
     inpSegNT.value = "00";
+
+    inpHrNT.addEventListener("change", () => {
+      if (inpHrNT.value < 0) inpHrNT.value = "00";
+    });
+    inpMinNT.addEventListener("change", () => {
+      if (inpMinNT.value < 0 || inpMinNT.value > 60) inpMinNT.value = "00";
+    });
+    inpSegNT.addEventListener("change", () => {
+      if (inpSegNT.value < 0 || inpSegNT.value > 60) inpSegNT.value = "00";
+    });
     //configurações de classe dos elementos HTML
     setNT.classList.add("setNT");
     tNewT.style.display = "flex";
@@ -146,6 +167,8 @@ newT.addEventListener("click",()=>{
     cancel.addEventListener("click",()=>{
         document.body.removeChild(setNT);
         document.body.style.backgroundColor="transparent";
+        document.body.style.background =
+          "linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863))";
     })
 
     conf.addEventListener("click",()=>{
@@ -158,6 +181,11 @@ newT.addEventListener("click",()=>{
         let itenTimerName = document.createElement("p");
         let deleteIten = document.createElement("button");
         //valores texto dos elementos
+
+        if (inpHrNT.value < 0) inpHrNT.value = "00";
+        if (inpMinNT.value < 0 || inpMinNT.value > 60) inpMinNT.value = "00";
+        if (inpSegNT.value < 0 || inpSegNT.value > 60) inpSegNT.value = "00";
+
         itenTimerName.textContent = inpName.value;
         Hr.textContent = inpHrNT.value.length < 2 ? "0" + inpHrNT.value : inpHrNT.value;
         Min.textContent = inpMinNT.value.length < 2 ? "0" + inpMinNT.value : inpMinNT.value;
@@ -173,27 +201,19 @@ newT.addEventListener("click",()=>{
         //deletar o item da lista
         deleteIten.addEventListener("click",()=>{
             listTimers.removeChild(itenTimer);
+            hora.value = hrV;
+            min.value = minV;
+            seg.value=segV;
         })
 
         itenTimer.addEventListener("click",()=>{
-            hora.value = Hr.textContent;
-            min.value = Min.textContent;
-            seg.value = Seg.textContent;
+            if(itenTimer.parentElement == listTimers)
+            {
+                hora.value = Hr.textContent;
+                min.value = Min.textContent;
+                seg.value = Seg.textContent;
+            }
         })
-
-        Hr.addEventListener("change", () => {
-          if (hora.value.length > 2 || hora.value < 0) hora.value = "00";
-        });
-        Min.addEventListener("change", () => {
-          if (min.value.length > 2 || min.value < 0 || min.value > 60)
-            min.value = "00";
-        });
-        Seg.addEventListener("change", () => {
-          if (seg.value.length > 2 || seg.value < 0 || seg.value > 60)
-            seg.value = "00";
-        });
-
-
         //append do elementos em seus containers
         ContTimer.appendChild(Hr);
         ContTimer.appendChild(Min);
@@ -203,11 +223,11 @@ newT.addEventListener("click",()=>{
         itenTimer.appendChild(deleteIten);
         listTimers.appendChild(itenTimer);
 
-        console.log(Hr);
         document.body.removeChild(setNT);
-        document.body.style.backgroundColor = "transparent";
+        document.body.style.background =
+          "linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863))";
     })
-})//TODO: fix new timer insertion bug
+})
 
 for(let i=0; i<opts.length;i++)
 {
@@ -215,7 +235,6 @@ for(let i=0; i<opts.length;i++)
     alarm.src = opts[i].value;
     })
 }
-
 //Play selected audio button
 playB.classList.add("btn");
 pauseB.classList.add("btn");
@@ -228,9 +247,49 @@ playB.addEventListener("click", () => {
     cabeca.removeChild(playB);
     cabeca.appendChild(pauseB);
 });
-
 pauseB.addEventListener("click",()=>{
     alarm.pause();
     cabeca.removeChild(pauseB);
     cabeca.appendChild(playB);
 })
+
+const acabou = ()=>{
+    let endTimer = document.createElement("div");
+    let btns = document.createElement("div");
+    let endBtn = document.createElement("button");
+    let resetBtn = document.createElement("button");
+    let pEnd = document.createElement("p");
+    pEnd.textContent = "Fim do timer";
+    endBtn.textContent = "Confirmar";
+    resetBtn.textContent= "Reiniciar timer";
+    endTimer.classList.add("endTimer")
+    endBtn.classList.add("btn");
+    resetBtn.classList.add("btn");
+    btns.style.display = "flex";
+    btns.style.margin = "5px";
+    btns.appendChild(endBtn);
+    btns.appendChild(resetBtn);
+    endTimer.appendChild(pEnd);
+    endTimer.appendChild(btns);
+
+    document.body.style.background =
+      "linear-gradient(to bottom,rgba(10, 26, 56,0.9),rgba(63, 37, 21, 0.9))";
+    document.body.appendChild(endTimer);
+
+    endBtn.addEventListener("click",()=>{
+        document.body.removeChild(endTimer);
+        alarm.pause();
+        document.body.style.background =
+          "linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863))";
+    });
+
+    resetBtn.addEventListener("click",()=>{
+        hora.value = hrV;
+        min.value = minV;
+        seg.value = segV;
+        PP.click();
+        document.body.removeChild(endTimer);
+        document.body.style.background =
+          "linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863))";
+    })
+}

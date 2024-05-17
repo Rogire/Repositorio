@@ -38,12 +38,16 @@ div.CLeft
 div.CCntr{
     position: absolute;
     right: 20%;
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 40%;
+    height: 25%;
     margin: 15%;
     margin-top: 10%;
     left: 15%;
     padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     background-color: var(--corAux);
     box-shadow: 7px 8px 8px rgba(0, 0, 0);
@@ -74,7 +78,7 @@ input.tInp{
 }
 
 button.btn{
-    width: 70px;
+    width: 75px;
     height: 40px;
     margin: 2px;
     background-color: var(--corTimer);
@@ -160,4 +164,19 @@ div.iten{
         height: 40px;
         font-size: 30px;
         margin: 2px;
+}
+
+div.endTimer{
+    width: 80%;
+    height: 80%;
+    color: #fff;
+    font-size: 6em;
+    background-color: var(--corAux);
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
