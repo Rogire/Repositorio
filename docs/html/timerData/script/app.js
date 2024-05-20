@@ -10,10 +10,13 @@ const cabeca = document.querySelector("div.cabeca");
 const playB = document.createElement("button");
 const pauseB = document.createElement("button");
 const alarm = document.createElement("audio");
+
+
 let hrV="00";
 let minV="00";
 let segV="00";
 let timer;
+let vef;
 alarm.src = opts[0].value;
 //}
 
@@ -45,6 +48,7 @@ PP.addEventListener("click",()=>{
             if (seg.value < 10 && seg.value.length == 1)
             seg.value = "0" + seg.value;
             
+            vef=false;
             timer = setInterval(function time() {
             if(seg.value >=1)
                 seg.value--;
@@ -107,7 +111,6 @@ const formatar=()=>{
     if (hora.value == 0 && min.value == 0 && seg.value == 0) 
     {
       clearInterval(timer);
-      alarm.play();
       PP.classList.remove("active");
       PP.classList.add("inactive");
       PP.textContent = "Iniciar";
@@ -272,6 +275,12 @@ const acabou = ()=>{
     let endBtn = document.createElement("button");
     let resetBtn = document.createElement("button");
     let pEnd = document.createElement("p");
+
+    const fimTimer = setInterval(function time() {
+      alarm.play(), alarm.duration;
+    });
+
+    document.title = "Fim do timer";
     pEnd.textContent = "Fim do timer";
     endBtn.textContent = "Confirmar";
     resetBtn.textContent= "Reiniciar timer";
@@ -284,7 +293,6 @@ const acabou = ()=>{
     btns.appendChild(resetBtn);
     endTimer.appendChild(pEnd);
     endTimer.appendChild(btns);
-
     document.body.style.background =
       "linear-gradient(to bottom,rgba(10, 26, 56,0.9),rgba(63, 37, 21, 0.9))";
     document.body.appendChild(endTimer);
@@ -292,6 +300,8 @@ const acabou = ()=>{
     endBtn.addEventListener("click",()=>{
         document.body.removeChild(endTimer);
         alarm.pause();
+        clearInterval(fimTimer);
+        document.title = "Timer";
         document.body.style.background =
           "linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863))";
     });
@@ -300,6 +310,7 @@ const acabou = ()=>{
         hora.value = hrV;
         min.value = minV;
         seg.value = segV;
+        clearInterval(fimTimer);
         PP.click();
         document.body.removeChild(endTimer);
         document.body.style.background =
