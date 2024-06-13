@@ -11,8 +11,6 @@ botao.addEventListener("submit", (e) => {
   e.preventDefault();
   let caixa = document.querySelector("section.res");
   preConvert(caixa);
-  
-  
 });
 
 
@@ -53,10 +51,14 @@ function setSucessFor(box, moeda1, moeda2){
 // função que decodifico o json e calcula a taxa
  async function convert(param,convertido) {
     let caixa = document.querySelector("section.res");
-    let numV=Valor.value;
+    let numV=Number(Valor.value);
+    let p = document.createElement("p");
+    console.log(isNaN(numV))
   try {
-    if(numV<0)
-      throw new Error("Selecione um valor válido");
+    if(isNaN(numV))
+      throw new Error("Digite um valor numérico válido");
+    else if (numV<0)
+      throw new Error("Digite um valor válido");
     
     const response = await fetch(param);
         if (!response) 
@@ -80,8 +82,8 @@ function setSucessFor(box, moeda1, moeda2){
     const dadosConvertido = values[val];
     //caixa.textContent =(numV/dadosConvertido).toFixed(2);
     let ValConvertido = (numV / dadosConvertido);
-    caixa.textContent = ValConvertido.toLocaleString({style:"currency",currency:"param"});
-
+    p.textContent = `${numV.toLocaleString({style:"currency",currency:"convertido"})} = ${ValConvertido.toLocaleString({style:"currency",currency:"param"})}`;
+    caixa.appendChild(p);
     caixa.classList.add("active");
 
   } catch (err) {
