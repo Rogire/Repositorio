@@ -28,9 +28,9 @@ function preConvert(caixa) {
   else if ((currency == "" || converter == "") && (currency2 == "" || converter2== ""))
     SetErrorFor("Selecione as moedas", caixa);
   else if(currency !== '' && converter !== '')
-    setSucessFor(caixa,url,converter);
+    setSucessFor(caixa,url,converter,currency);
   else if(currency2 !== '' && converter2 !== '')
-    setSucessFor(caixa, url2, converter2);
+    setSucessFor(caixa, url2, converter2,currency2);
 }
 
 //Funções de validação
@@ -38,15 +38,15 @@ function SetErrorFor(message,box){
   box.textContent = message;
   box.classList.add('erro');
 }
-function setSucessFor(box, moeda1, moeda2){
+function setSucessFor(box, moeda1, moeda2,M1){
   if(box.classList.contains('erro'))
     box.classList.remove('erro');
-    convert(moeda1,moeda2);
+    convert(moeda1,moeda2,M1);
 }
 
 
 // função que decodifico o json e calcula a taxa
- async function convert(param,convertido) {
+ async function convert(param,convertido,M1) {
     let caixa = document.querySelector("section.res");
     let numV=Valor.value.replace(/,/g,'.');
   try {
@@ -80,9 +80,10 @@ function setSucessFor(box, moeda1, moeda2){
     const dadosConvertido = values[val];
     let ValConvertido = (numV / dadosConvertido);
     caixa.textContent="";
-
-    let format = new Intl.NumberFormat("pt-BR",{style:"currency", currency:"BRL", minimumFractionDigits:3});
-    caixa.textContent = format.format(ValConvertido);
+    console.log(param)
+    let format = new Intl.NumberFormat("pt-BR",{style:"currency", currency:M1, minimumFractionDigits:3});
+    let formatAnt = new Intl.NumberFormat("pt-BR",{style:"currency", currency:convertido, minimumFractionDigits:3});
+    caixa.textContent = `${formatAnt.format(numV)} = ${format.format(ValConvertido)}`;
 
     caixa.classList.add("active");
 
