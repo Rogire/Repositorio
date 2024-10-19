@@ -108,16 +108,19 @@ section.res{
     position: absolute;
     top: 70%;
     right: 48%;
-    width: 150px;
+    width: 250px;
     height: 50px;
 }
 
 .res.active{
-    display: block;
+    display: flex;
     position: absolute;
-    left: 46%;
-    height: 100px;
+    align-items: center;
+    justify-content: center;
+    left: 42%;
+    height: 150px;
     bottom: 0px;
+    font-size: 1.3em;
 }
 
 .res.active.erro{

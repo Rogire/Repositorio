@@ -1,0 +1,95 @@
+@media (max-width: 500px) {
+    div.CLeft {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        background-color: #fff56c62;
+        border-radius: 15px;
+        margin: 15px;
+        width: 200px;
+        height: -moz-fit-content;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    div.CCntr {
+        position: absolute;
+        width: 50%;
+        height: 10%;
+        left: 8%;
+        top: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        background-color: var(--corAux);
+        box-shadow: 7px 8px 8px rgba(0, 0, 0);
+    }
+
+    input.tInp {
+        background-color: #926f22;
+        border-radius: 5px;
+        box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.336);
+        padding: 10px;
+        border: none;
+        width: 27px;
+        height: 20px;
+        font-size: 27px;
+        margin: 2px;
+        font-family: "Inconsolata";
+    }
+
+    div.setNT {
+        position: absolute;
+        display: flex;
+        top: 7%;
+        left: 0%;
+        font-size: 10px;
+        flex-direction: column;
+        background-color: #c98c0a;
+        ;
+        width: -moz-fit-content;
+        width: fit-content;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 9px 8px 8px rgba(0, 0, 0, 0.74);
+    }
+
+    div.itenTimer {
+        background-color: #ffdd935d;
+        padding: 5px;
+        width: 135px;
+        margin-top: 10px;
+        border-radius: 0.3em;
+        box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.178);
+        font-family: "Inconsolata";
+    }
+
+    div.iten {
+        background-color: #926f22;
+        border-radius: 5px;
+        box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.336);
+        padding: 10px;
+        border: none;
+        width: 20px;
+        height: 20px;
+        font-size: 25px;
+        margin: 2px;
+    }
+    div.endTimer
+    {
+    width: 80%;
+    height: 80%;
+    color: #fff;
+    font-size: 3em;
+    background-color: var(--corAux);
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+}
