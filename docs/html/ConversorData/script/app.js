@@ -4,17 +4,14 @@ const cur1 = document.querySelector('select#cur1');
 const cur2 = document.querySelector('select#cur2');
 const cur3 = document.querySelector('input#cur3');
 const cur4 = document.querySelector('input#cur4');
-const Valor = document.querySelector('input#num');
+const Valor= document.querySelector('input#num');
 
 
 botao.addEventListener("submit", (e) => {
   e.preventDefault();
   let caixa = document.querySelector("section.res");
   preConvert(caixa);
-  
-  
 });
-
 
 function preConvert(caixa) {
   let currency = cur1.value;
@@ -34,8 +31,6 @@ function preConvert(caixa) {
     setSucessFor(caixa,url,converter);
   else if(currency2 !== '' && converter2 !== '')
     setSucessFor(caixa, url2, converter2);
-  
-  //  console.log(currency,currency2, converter, converter2);
 }
 
 //Funções de validação
@@ -53,9 +48,9 @@ function setSucessFor(box, moeda1, moeda2){
 // função que decodifico o json e calcula a taxa
  async function convert(param,convertido) {
     let caixa = document.querySelector("section.res");
-    let numV=Valor.value;
+    let numV=Valor.value.replace(/,/g,'.');
   try {
-    if(numV<0)
+    if(numV<0 || isNaN(numV))
       throw new Error("Selecione um valor válido");
     
     const response = await fetch(param);
@@ -72,15 +67,22 @@ function setSucessFor(box, moeda1, moeda2){
 
     let val=0;
     //o valor de i resultante é igual ao index da moeda selecionada na array values
+
     for (let i = 0; i < keys.length; i++) 
     {
-        if(keys[i]==convertido)
+        if(keys[i]===convertido)
+        {
           val = i;
+          break;
+        }
     }
+
     const dadosConvertido = values[val];
-    //caixa.textContent =(numV/dadosConvertido).toFixed(2);
     let ValConvertido = (numV / dadosConvertido);
-    caixa.textContent = ValConvertido.toLocaleString({style:"currency",currency:"param"});
+    caixa.textContent="";
+
+    let format = new Intl.NumberFormat("pt-BR",{style:"currency", currency:"BRL", minimumFractionDigits:3});
+    caixa.textContent = format.format(ValConvertido);
 
     caixa.classList.add("active");
 

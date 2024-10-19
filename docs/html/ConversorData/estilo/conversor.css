@@ -60,7 +60,7 @@ select{
     padding: 20px;
     border: none;
     font-size: 20px;
-    background-color: var(--corbotao);
+    background-color: #cfd603;
 }
 img{
     width: 70px;
@@ -91,7 +91,7 @@ input.in:active{
     color: black;
 }
 input.in.numb{
-    background-color: gray;
+    background-color: lightgray;
     border: 1px solid black;
     
 }
@@ -171,7 +171,7 @@ section.res{
     }
     div.gambssec{
         display: flex;
-            flex-direction: column;
+        flex-direction: column;
     }
     div.gambs{
         display: flex;
