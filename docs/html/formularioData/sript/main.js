@@ -3,12 +3,11 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordConf = document.getElementById('passwordconf');
-const sub=document.getElementById('sub')
 let passed = false;
 
 form.addEventListener('submit', (event) => {
     check();
-    if(passed == false){
+    if(passed === false){
         event.preventDefault();
     }
 });
