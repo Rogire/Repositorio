@@ -166,9 +166,11 @@ newT.addEventListener("click",()=>{
     inpSegNT.classList.add("tInp");
     conf.classList.add("btn");
     cancel.classList.add("btn");
+
     inpHrNT.style.fontSize="2.5em";
     inpMinNT.style.fontSize="2.5em";
     inpSegNT.style.fontSize="2.5em";
+
     //Append dos elementos nos seus containers e no corpo
     tNewT.appendChild(inpHrNT);
     tNewT.appendChild(inpMinNT);

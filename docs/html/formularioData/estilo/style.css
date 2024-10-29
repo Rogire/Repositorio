@@ -59,6 +59,29 @@ p.text{
     position: absolute;
     width: 250px;
 }
+
+div.contFlex{
+    display: none;
+    position: absolute;
+    right: 0;
+}
+
+div.contFlex.show{
+    display: block;
+}
+
+div.artFlex.show{
+    position: absolute;
+    left: 42%;
+    top: 100%;
+    height: 100%;
+
+}
+div.artFlex.show>p{
+    width: 250px;
+    height: fit-content;
+    padding: 20px;
+}
 div.parallax{
     
     height: 100%;
