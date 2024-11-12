@@ -107,14 +107,19 @@ const CreateCalc = (e) => {
         switch (btId)
         {
             case 0:
+                v1.setAttribute("placeholder","Número total");
+                v2.setAttribute("placeholder","Número que deseja combinar")
                 pRes.textContent = Combinacao(v1.value,v2.value);
                 inpDiv.appendChild(pRes);
                 break;
             case 1:
+                v1.setAttribute("placeholder","Número total");
+                v2.setAttribute("placeholder","Número que deseja permutar")
                 pRes.textContent = Permutacao(v1.value,v2.value);
                 inpDiv.appendChild(pRes);
                 break;
             case 2:
+
                 break;
             default:
                 break;
@@ -137,5 +142,6 @@ const Combinacao = (v1,v2)=>
     return fatorial(v1)/(fatorial(v2)*fatorial(v1-v2));
 }
 const Permutacao = (v1,v2)=>{
+    //FIXME: formula ta errada
     return fatorial(v1)/fatorial(v2);
 }
