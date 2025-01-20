@@ -237,6 +237,8 @@ div.eta{
     width: 700px;
     display: flex;
     justify-content: space-around;
+    position:absolute;
+    left:15vw;
 }
 ul{
     display: inline-block;
