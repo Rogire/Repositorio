@@ -4,7 +4,7 @@ const cur1 = document.querySelector('select#cur1');
 const cur2 = document.querySelector('select#cur2');
 const cur3 = document.querySelector('input#cur3');
 const cur4 = document.querySelector('input#cur4');
-const Valor = document.querySelector('input#num');
+const Valor= document.querySelector('input#num');
 
 
 botao.addEventListener("submit", (e) => {
@@ -12,7 +12,6 @@ botao.addEventListener("submit", (e) => {
   let caixa = document.querySelector("section.res");
   preConvert(caixa);
 });
-
 
 function preConvert(caixa) {
   let currency = cur1.value;
@@ -29,11 +28,9 @@ function preConvert(caixa) {
   else if ((currency == "" || converter == "") && (currency2 == "" || converter2== ""))
     SetErrorFor("Selecione as moedas", caixa);
   else if(currency !== '' && converter !== '')
-    setSucessFor(caixa,url,converter);
+    setSucessFor(caixa,url,converter,currency);
   else if(currency2 !== '' && converter2 !== '')
-    setSucessFor(caixa, url2, converter2);
-  
-  //  console.log(currency,currency2, converter, converter2);
+    setSucessFor(caixa, url2, converter2,currency2);
 }
 
 //Funções de validação
@@ -41,24 +38,20 @@ function SetErrorFor(message,box){
   box.textContent = message;
   box.classList.add('erro');
 }
-function setSucessFor(box, moeda1, moeda2){
+function setSucessFor(box, moeda1, moeda2,M1){
   if(box.classList.contains('erro'))
     box.classList.remove('erro');
-    convert(moeda1,moeda2);
+    convert(moeda1,moeda2,M1);
 }
 
 
 // função que decodifico o json e calcula a taxa
- async function convert(param,convertido) {
+ async function convert(param,convertido,M1) {
     let caixa = document.querySelector("section.res");
-    let numV=Number(Valor.value);
-    let p = document.createElement("p");
-    console.log(isNaN(numV))
+    let numV=Valor.value.replace(/,/g,'.');
   try {
-    if(isNaN(numV))
-      throw new Error("Digite um valor numérico válido");
-    else if (numV<0)
-      throw new Error("Digite um valor válido");
+    if(numV<0 || isNaN(numV))
+      throw new Error("Selecione um valor válido");
     
     const response = await fetch(param);
         if (!response) 
@@ -74,16 +67,24 @@ function setSucessFor(box, moeda1, moeda2){
 
     let val=0;
     //o valor de i resultante é igual ao index da moeda selecionada na array values
+
     for (let i = 0; i < keys.length; i++) 
     {
-        if(keys[i]==convertido)
+        if(keys[i]===convertido)
+        {
           val = i;
+          break;
+        }
     }
+
     const dadosConvertido = values[val];
-    //caixa.textContent =(numV/dadosConvertido).toFixed(2);
     let ValConvertido = (numV / dadosConvertido);
-    p.textContent = `${numV.toLocaleString({style:"currency",currency:"convertido"})} = ${ValConvertido.toLocaleString({style:"currency",currency:"param"})}`;
-    caixa.appendChild(p);
+    caixa.textContent="";
+    console.log(param)
+    let format = new Intl.NumberFormat("pt-BR",{style:"currency", currency:M1, minimumFractionDigits:3});
+    let formatAnt = new Intl.NumberFormat("pt-BR",{style:"currency", currency:convertido, minimumFractionDigits:3});
+    caixa.textContent = `${formatAnt.format(numV)} = ${format.format(ValConvertido)}`;
+
     caixa.classList.add("active");
 
   } catch (err) {
