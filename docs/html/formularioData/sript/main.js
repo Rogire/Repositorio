@@ -3,16 +3,14 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordConf = document.getElementById('passwordconf');
-const sub=document.getElementById('sub')
 let passed = false;
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit',(event) => {
     check();
-    if(passed == false){
+    if(passed === false){
         event.preventDefault();
     }
 });
-
 function check() {
     const usernameValue = username.value;
     const emailValue = email.value;
@@ -50,7 +48,6 @@ function check() {
     }
 
 }
-
 function SetErrorFor(input, message) {
     const formControl = input.parentElement;
     const small = formControl.querySelector("small");
@@ -67,10 +64,8 @@ function setSucessFor(input) {
     small.innerText = ""
 
 };
-
 function checkEmail(email) {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
     );
 }
-

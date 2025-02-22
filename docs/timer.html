@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="html/timerData/style/style.css">
+
+    <link rel="stylesheet" media="(max-width:500px)" href="html/timerData/style/MediaQuery500.css">
+    <link rel="stylesheet" media="(min-width:800px)" href="html/timerData/style/MediaQuery900.css">
+
+    <link rel="shortcut icon" href="html/media/imagens/Vexels-Office-Alarm-clock.512.png" type="image/x-icon">
+    <title>Timer</title>
+</head>
+<body>
+    <a href="index.html">
+    <img style="width: 60px" src="html/media/imagens/atras.png" alt="atras">
+    </a>
+    <div class="container">
+        <div class="CLeft">
+        <button title="adicionar"class="btn nt" id="addNewTimer">Adicionar timer</button>
+            <div class="cabeca">
+                <select title="selecionar áudio" >
+                    <option opt="optSel" value="html/media/audio/musca.mp3">Selecionar áudio</option>
+                    <option opt="optSel"  value="html/media/audio/musca.mp3">Alarme 1</option>
+                    <option opt="optSel"  value="html/media/audio/cuco.wav">Alarme 2</option>
+                    <option opt="optSel"  value="html/media/audio/digital.wav">Alarme 3</option>
+                    <option opt="optSel"  value="html/media/audio/peepeepee.wav">Alarme 4</option>
+            </select>
+            
+            </div>
+            
+        </div>
+
+        <div class="CCntr">
+            <div class="timerC">
+                <input type="number" class="tInp hora" value="00"></input>
+                <input type="number" class="tInp min" value="00"></input>
+                <input type="number" class="tInp seg" value="00"></input>
+            </div>
+            <p class="Tname"></p>
+            <div>
+                <button title="tocar" class="btn inactive" id="PP" cont="0">iniciar</button>
+                <button title="mais cinco minutos"class="btn" id="addTime">+5 min</button>
+            </div>
+        </div>
+        
+    </div>
+    <script src="html/timerData/script/app.js" defer></script>
+</body>
+</html>

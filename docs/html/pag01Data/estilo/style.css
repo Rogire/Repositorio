@@ -184,7 +184,7 @@ div.hidden2.active{
 
 /*Seta*/
 div.ler2{
-    background-image: url('fundoParallax/setaPraBaixo\ \(2\).png');
+    background-image: url('fundoParallax/setaPraBaixo (2).png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 150px;
@@ -237,9 +237,8 @@ div.eta{
     width: 700px;
     display: flex;
     justify-content: space-around;
-    left:15vw;
     position:absolute;
-    
+    left:15vw;
 }
 ul{
     display: inline-block;
@@ -288,6 +287,14 @@ li.item.HTML {
     font-size: 1.5em;
     font-weight: bolder;
     background-color: #F16A30;
+}
+li.item.algo{
+    text-align: center;
+    font-size: 1em;
+    font-weight: bolder;
+}
+li.item.proj{
+    height: fit-content;
 }
 li.cat:hover{
     transform: none;
@@ -339,7 +346,7 @@ footer{
         flex-direction: row;
     }
 }
-/*
+
 @media (max-width:1200px) 
 {
     body
@@ -348,6 +355,7 @@ footer{
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        height: 98vh;
     }
     .apresent>span{
         width: 1px;
@@ -362,6 +370,8 @@ footer{
         display: flex;
         flex-direction: column;
     }
-
+    main{
+        height: 98vh;
+        width: 98vw;
+    }
 }
-*/

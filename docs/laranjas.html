@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laranjas</title>
     <link rel="stylesheet" href="html/formularioData/estilo/style.css">
-    <script defer src="html/formularioData/sript/main.js"></script>
+
+    <script defer src="html/formularioData/sript/TemplateJS.js"></script>
 </head>
 <body>
     <header>
         <h1>Laranjas.com</h1>
         <nav>
-            <h4>Sobre laranjas</h4>
-            <h4>Sobre o site</h4>
+            <h4 class="aboutBtn">Sobre o site</h4>
             <select title='info' name="info" id="">
-                <option value="Mais informações">Mais informações</option>
-                <option value="">Descobrimento das laranjas</option>
-                <option value="">Qual a maior laranja do mundo?</option>
+                <option value="Mais informações" selected>Mais informações</option>
+                <option value="Desc">Descobrimento das laranjas</option>
+                <option value="Maior">Qual a maior laranja do mundo?</option>
             </select>
             <a href="formulário.html">
                 <h4>Login</h4>
@@ -25,19 +25,20 @@
         </nav>
     </header>
     <main>
-        <p>
+        <p class="text A">
             Bem vindo ao site de Laranjas que contém várias informações sobre laranjas
         </p>
     
-        <div class="parallax"></div>
 
-        <p class="text">
-        <a href="#">Segundo o google:</a> 
+
+        <p class="text B">
+        <a href="#">Segundo o google:</a>
             A laranja é o fruto da laranjeira, árvore da família Rutaceae. Possui porte médio que pode atingir até 8 metros de
         altura, tronco de cor castanho e copa de formato arredondado. A fruta é de origem asiática, foi levada pelos árabes para
         a península Ibérica e de lá se propagou pelo mundo.
         </p>
     </main>
+
     <a class="semf" href="index.html">
         <img style="width: 60px;" src="html/media/imagens/atras.png" alt="atras">
     </a>
