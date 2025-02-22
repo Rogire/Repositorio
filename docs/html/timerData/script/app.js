@@ -9,8 +9,8 @@ const opts = document.querySelectorAll('[opt=optSel]');
 const cabeca = document.querySelector("div.cabeca");
 const playB = document.createElement("button");
 const pauseB = document.createElement("button");
-const alarm = document.createElement("audio");
 
+const alarm = document.createElement("audio");
 
 let hrV="00";
 let minV="00";
