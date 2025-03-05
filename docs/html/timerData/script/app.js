@@ -362,9 +362,17 @@ const formatTm =
     if(ehPraRodar)
     {
       //TODO: Arrumar isso aqui direito (quando roda pra hora roda pro minuto duas vezes sem mexer nos segundos)
-      res = auxFR(hora, min, 59, false);
-      if(res)
-        seg.value = "59";
+
+      if(hora.value > 0)
+      {
+        if(min.value>0)
+          auxFR(min, seg, 59, false);
+        else
+        {
+          auxFR(hora, min, 59, false);
+          if (res) seg.value = "59";
+        }
+      }
       else
         auxFR(min, seg, 59, false);
     }
