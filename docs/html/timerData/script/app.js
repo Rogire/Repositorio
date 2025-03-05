@@ -17,6 +17,7 @@ const MSCRV = msCR.getAttribute("data-value");
 
 const initTimerBtn = document.querySelector("button#PP");
 const initCronoBtn = document.querySelector("button#CronoInit")
+const pauseCronoBtn = document.querySelector("button#CronoPause");
 
 const addTimeToTimer = document.querySelector("button#addTime");
 const newT = document.querySelector("button#addNewTimer");
@@ -398,3 +399,18 @@ const changePrefix = (pel1, pel2)=>
 
   return [pel1, pel2]
 }
+
+pauseCronoBtn.addEventListener("click",()=>{
+  if(initCronoBtn.classList.contains("active"))
+  {
+    initCronoBtn.textContent = "Iniciar";
+    initCronoBtn.classList.remove("active");
+    initCronoBtn.classList.add("inactive");
+    clearInterval(timerCR);
+  }
+  
+  TimeElementsCR.forEach((element)=>{
+    element.textContent = "0"
+  });
+  formatCR();
+})
