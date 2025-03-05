@@ -28,14 +28,30 @@
             </select>
             
             </div>
-            
         </div>
-
+        <div class="CMid container">
+            <div class="CronoContainer">
+                <span id="spCronoH" class="tInp crono" value="0">00</span>
+                :
+                <span id="spCronoM" class="tInp crono" value="0">00</span>
+                :
+                <span id="spCronoS" class="tInp crono" value="0">00</span>
+                :
+                <span id="spCronoMS"class="tInp crono" value="0">000</span>
+            </div>
+            
+            <div class="btnC">
+                <button class="btn cr" id="CronoInit">Iniciar</button>
+                <button class="btn cr" id="CronoPause">Restaurar</button>
+            </div>
+        </div>
         <div class="CCntr">
             <div class="timerC">
-                <input type="number" class="tInp hora" value="00"></input>
-                <input type="number" class="tInp min" value="00"></input>
-                <input type="number" class="tInp seg" value="00"></input>
+                <input type="number" class="tInp hora" id="hora" value="00"></input>
+                :
+                <input type="number" class="tInp min" id="min"  value="00"></input>
+                :
+                <input type="number" class="tInp seg" id="seg"  value="00"></input>
             </div>
             <p class="Tname"></p>
             <div>
@@ -43,7 +59,6 @@
                 <button title="mais cinco minutos"class="btn" id="addTime">+5 min</button>
             </div>
         </div>
-        
     </div>
     <script src="html/timerData/script/app.js" defer></script>
 </body>

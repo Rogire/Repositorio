@@ -1,27 +1,34 @@
-const hora = document.querySelector(".hora");
-const min = document.querySelector(".min");
-const seg = document.querySelector(".seg");
+const hora = document.querySelector("input#hora");
+const min = document.querySelector("input#min");
+const seg = document.querySelector("input#seg");
 
 const TimeElements = [hora, min, seg]
 
+const horaCR = document.querySelector("span#spCronoH");
+const minCR = document.querySelector("span#spCronoM");
+const segCR = document.querySelector("span#spCronoS");
+const msCR = document.querySelector("span#spCronoMS");
+
+const TimeElementsCR = [horaCR, minCR, segCR, msCR];
+const HCRV = horaCR.getAttribute("data-value")
+const MCRV = minCR.getAttribute("data-value");
+const SCRV = segCR.getAttribute("data-value");
+const MSCRV = msCR.getAttribute("data-value");
+
 const initTimerBtn = document.querySelector("button#PP");
-const addNewTimer = document.querySelector("button#addTime");
+const initCronoBtn = document.querySelector("button#CronoInit")
+
+const addTimeToTimer = document.querySelector("button#addTime");
 const newT = document.querySelector("button#addNewTimer");
 const listTimers = document.querySelector("div.CLeft");
 const opts = document.querySelectorAll('[opt=optSel]');
 const cabeca = document.querySelector("div.cabeca");
 const playB = document.createElement("button");
 const pauseB = document.createElement("button");
-
 const alarm = document.createElement("audio");
+const Values = [];
 
-let hrV="00";
-let minV="00";
-let segV="00";
-const Values = [hrV, minV, segV];
-
-let vInit = [];
-let timer;
+let timer, timerCR;
 let vef;
 
 alarm.src = opts[0].value;
@@ -48,97 +55,55 @@ function parseSetTime(elements, ref)
     else 
       if(elements[i].value.length > 2 || elements[i].value < 0 || elements[i].value > 60 || elements[i].value == "")
         elements[i].value = "00";
-
-    if(ref)
-      Values[i] = elements[i].value;
   }
 }
 
-initTimerBtn.addEventListener("click",()=>{
+initTimerBtn.addEventListener("click",
+  ()=>{
+    if(hora.value == 0 && min.value == 0 && seg.value == 0)
+      return;
+
     if(initTimerBtn.classList.contains("inactive"))
     {
-            vef = false;
-            initTimerBtn.classList.remove("inactive");
-            initTimerBtn.classList.add("active");
-            initTimerBtn.textContent = "Pausar";
+      if(Values.length == 0)
+      {
+        Values[0] = hora.value
+        Values[1] = min.value
+        Values[2] = seg.value
+      }
 
-            formatar(false);
+      vef = false;
+      initTimerBtn.classList.remove("inactive");
+      initTimerBtn.classList.add("active");
+      initTimerBtn.textContent = "Pausar";
 
-            timer = setInterval(function time() {
-            if(seg.value >=0)
-                seg.value--;
-            if (seg.value < 10 && seg.value.length == 1)
-              seg.value = "0" + seg.value;
+      timer = setInterval(function time() {
+      if(seg.value >=0)
+          seg.value--;
+      if (seg.value < 10 && seg.value.length == 1)
+        seg.value = "0" + seg.value;
 
-            document.title = `${hora.value}:${min.value}:${seg.value}`;
+      document.title = `${hora.value}:${min.value}:${seg.value}`;
             
-            if (seg.value < 0) 
-              formatar(true)
-            
-            }, 1000);
+      if (seg.value < 0) 
+        formatTm()
+      }, 1000);
     }
     else if(initTimerBtn.classList.contains("active"))
     {
-        initTimerBtn.classList.remove("active");
-        initTimerBtn.classList.add("inactive");
-        initTimerBtn.textContent = "Iniciar";
-        document.title = "Timer";
-        clearInterval(timer);
-    }
-});
-addNewTimer.addEventListener("click",()=>{
-    if (min.value < 59 && Number(Number(min.value) + 5)<59)
-            min.value = Number(Number(min.value) + 5);
-    if(min.value.length <2) min.value = '0'+min.value;
-});
-
-const formatar = (zerou)=>{
-
-  if (min.value > 0 && zerou) 
-    {
-      min.value--;
-      seg.value = 59;
-    } 
-    else if (min.value == 0 && hora.value > 0) 
-    {
-      if (seg.value == 0) 
-      {
-        hora.value--;
-        seg.value = 59;
-        min.value = 59;
-      } 
-      else 
-      {
-        hora.value--;
-        min.value = 59;
-      }
-    }
-
-    if (min.value == 0 && hora.value > 0) 
-      hora.value--;
-
-    if (hora.value < 10 && hora.value.length == 1) 
-      hora.value = "0" + hora.value;
-    
-    if (min.value < 10 && min.value.length == 1) 
-      min.value = "0" + min.value;
-
-    if(min.value>60 || min.value == "")
-       min.value = "00";
-
-    if(seg.value>60 || seg.value == "") 
-      seg.value = "00";
-    
-    if (hora.value == 0 && min.value == 0 && seg.value == 0) 
-    {
-      clearInterval(timer);
       initTimerBtn.classList.remove("active");
       initTimerBtn.classList.add("inactive");
       initTimerBtn.textContent = "Iniciar";
       document.title = "Timer";
-      acabou();
+      clearInterval(timer);
     }
-}
+});
+
+addTimeToTimer.addEventListener("click",()=>{
+    if (min.value < 59 && Number(Number(min.value) + 5)<59)
+            min.value = Number(Number(min.value) + 5);
+    if(min.value.length <2) min.value = '0'+min.value;
+});
 
 // Add new timer to the timer list
 newT.addEventListener("click",()=>{
@@ -283,6 +248,13 @@ pauseB.addEventListener("click",()=>{
 })
 
 const acabou = ()=>{
+    clearInterval(timer);
+    initTimerBtn.classList.remove("active");
+    initTimerBtn.classList.add("inactive");
+    initTimerBtn.textContent = "Iniciar";
+    seg.value = "00";
+    document.title = "Timer";
+
     let endTimer = document.createElement("div"), btns = document.createElement("div");
     let endBtn = document.createElement("button"), resetBtn = document.createElement("button");
     let pEnd = document.createElement("p");
@@ -333,4 +305,96 @@ const acabou = ()=>{
         document.body.style.background =
           "linear-gradient(to bottom,rgb(10, 26, 56),rgba(63, 37, 21, 0.863))";
     })
+}
+
+initCronoBtn.addEventListener("click",
+  ()=>{
+      if(!initCronoBtn.classList.contains('active'))
+      {
+        initCronoBtn.textContent = "Pausar"
+        initCronoBtn.classList.remove("inactive");
+        initCronoBtn.classList.add('active');
+
+        timerCR = setInterval(function time() 
+        {
+          msCR.textContent = Number(msCR.textContent)+1;
+          formatCR();
+        }, 10);
+      }
+      else
+      {
+        initCronoBtn.textContent = "Iniciar";
+        initCronoBtn.classList.remove("active");
+        initCronoBtn.classList.add("inactive");
+        clearInterval(timerCR);
+      }
+  }
+)
+
+const formatCR= 
+()=>{
+  auxFR(msCR, segCR, 100, true);
+  auxFR(segCR, minCR, 60,  true);
+  auxFR(minCR, horaCR, 60, true);
+}
+
+const formatTm = 
+()=>
+  {
+    if (hora.value == 0 && min.value == 0 && seg.value == -1) 
+      acabou();
+
+    if (min.value > 60 || min.value == "") min.value = "00";
+    if (seg.value > 60 || seg.value == "") seg.value = "00";
+
+    auxFR(min, seg, 59, false);
+    auxFR(hora, min, 59, false);
+  };
+
+/* 
+Args:
+el1, el2: time elements to make comparison
+ft: int stop flag
+ac: boolean to if its timer or cronometer usage
+*/
+const auxFR=
+(el1, el2, ft, ac)=>{
+  if(ac) 
+  {
+    if(Number(el1.textContent) >= ft)
+    {
+      el2.textContent = Number(el2.textContent)+1;
+      el1.textContent = "00";
+    }
+  }
+  else 
+  {
+    if (Number(el1.value) > 0) 
+    {
+      el1.value = Number(el1.value) - 1;
+      el2.value = ft;
+    }
+  }
+
+  if (el1.textContent == "") 
+  {
+    //case Timer
+    el1.value = changePrefix(el1.value, el2.value)[0];
+    el2.value = changePrefix(el1.value, el2.value)[1];
+  } //case cronometer
+  else 
+  {
+    el1.textContent = changePrefix(el1.textContent, el2.textContent)[0];
+    el2.textContent = changePrefix(el1.textContent, el2.textContent)[1];
+  } 
+}
+const changePrefix = (pel1, pel2)=>
+  {
+  if (Number(pel1) < 10 && pel1.length < 2)
+    pel1 = "0" + pel1;
+
+  if (Number(pel2) < 10 && pel2.length < 2)
+    pel2 = "0" + pel2;
+
+  return [pel1, pel2]
 }
