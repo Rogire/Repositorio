@@ -87,7 +87,7 @@ initTimerBtn.addEventListener("click",
       document.title = `${hora.value}:${min.value}:${seg.value}`;
             
       if (seg.value < 0) 
-        formatTm()
+        formatTm(true)
       }, 1000);
     }
     else if(initTimerBtn.classList.contains("active"))
@@ -101,9 +101,15 @@ initTimerBtn.addEventListener("click",
 });
 
 addTimeToTimer.addEventListener("click",()=>{
-    if (min.value < 59 && Number(Number(min.value) + 5)<59)
+    if (min.value < 59 && (Number(min.value) + 5)<59)
             min.value = Number(Number(min.value) + 5);
-    if(min.value.length <2) min.value = '0'+min.value;
+    else if (Number(min.value) + 5 > 59) 
+    {
+      hora.value = Number(hora.value)+1;
+      min.value = (Number(min.value) + 5)-60;
+    }
+
+    formatTm(false)
 });
 
 // Add new timer to the timer list
@@ -340,16 +346,29 @@ const formatCR=
 }
 
 const formatTm = 
-()=>
+(ehPraRodar)=>
   {
     if (hora.value == 0 && min.value == 0 && seg.value == -1) 
       acabou();
 
-    if (min.value > 60 || min.value == "") min.value = "00";
-    if (seg.value > 60 || seg.value == "") seg.value = "00";
-
-    auxFR(min, seg, 59, false);
-    auxFR(hora, min, 59, false);
+    if (hora.value.length <2) hora.value = "0"+hora.value;
+    if (min.value > 60 || min.value == "" ) 
+      min.value = "00";
+    else if (min.value.length < 2)
+      min.value = "0" + min.value;
+    
+    if (seg.value > 60 || seg.value == "" || seg.value < 0) seg.value = "00";
+    
+    if(ehPraRodar)
+    {
+      //TODO: Arrumar isso aqui direito (quando roda pra hora roda pro minuto duas vezes sem mexer nos segundos)
+      res = auxFR(hora, min, 59, false);
+      if(res)
+        seg.value = "59";
+      else
+        auxFR(min, seg, 59, false);
+    }
+    
   };
 
 /* 
@@ -360,6 +379,7 @@ ac: boolean to if its timer or cronometer usage
 */
 const auxFR=
 (el1, el2, ft, ac)=>{
+  t = false;
   if(ac) 
   {
     if(Number(el1.textContent) >= ft)
@@ -374,6 +394,8 @@ const auxFR=
     {
       el1.value = Number(el1.value) - 1;
       el2.value = ft;
+
+      t = true;
     }
   }
 
@@ -387,7 +409,9 @@ const auxFR=
   {
     el1.textContent = changePrefix(el1.textContent, el2.textContent)[0];
     el2.textContent = changePrefix(el1.textContent, el2.textContent)[1];
-  } 
+  }
+  
+  return t;
 }
 const changePrefix = (pel1, pel2)=>
   {
