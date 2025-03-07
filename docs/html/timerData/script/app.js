@@ -340,9 +340,9 @@ initCronoBtn.addEventListener("click",
 
 const formatCR= 
 ()=>{
-  auxFR(msCR, segCR, 100, true);
-  auxFR(segCR, minCR, 60,  true);
-  auxFR(minCR, horaCR, 60, true);
+  auxFRCR(msCR, segCR, 100);
+  auxFRCR(segCR, minCR, 60);
+  auxFRCR(minCR, horaCR, 60);
 }
 
 const formatTm = 
@@ -350,23 +350,43 @@ const formatTm =
   {
     if (hora.value == 0 && min.value == 0 && seg.value == -1) 
       acabou();
+    
+    let Vals1 = changePrefix(hora.value, min.value);
+    let Vals2 = changePrefix(min.value, seg.value);
 
-    if (hora.value.length <2) hora.value = "0"+hora.value;
-    if (min.value > 60 || min.value == "" ) 
-      min.value = "00";
-    else if (min.value.length < 2)
-      min.value = "0" + min.value;
-    
-    if (seg.value > 60 || seg.value == "" || seg.value < 0) seg.value = "00";
-    
-    if(ehPraRodar)
+    if(min.value > 60)
     {
+      hora.value = Number(hora.value) + parseInt(min.value/60);
+      min.value =  min.value - parseInt(min.value/60)*60;
+    }
+
+    Vals1 = changePrefix(hora.value, min.value);
+    hora.value = Vals1[0]
+    min.value  = Vals1[1]
+    seg.value  = Vals2[1]
+
+    if(ehPraRodar)
+    {//second is always <0
       //TODO: Arrumar isso aqui direito (quando roda pra hora roda pro minuto duas vezes sem mexer nos segundos)
-      res = auxFR(hora, min, 59, false);
+
+      if(hora.value >0)
+      {
+        if(min.value >0)
+          auxFRTm(min, seg, 59);
+        else
+        {
+          auxFRTm(hora, min, 59)
+          seg.value = "59"
+        }
+      }
+      else
+        auxFRTm(min, seg, 59);
+      
+      /*res = auxFRTm(hora, min, 59, false);
       if(res)
         seg.value = "59";
       else
-        auxFR(min, seg, 59, false);
+        auxFRTm(min, seg, 59, false);*/
     }
   };
 
@@ -376,55 +396,51 @@ el1, el2: time elements to make comparison
 ft: int stop flag
 ac: boolean to if its timer or cronometer usage
 */
-const auxFR=
-(el1, el2, ft, ac)=>{
+const auxFRTm = (el1, el2, ft) => {
   t = false;
-  if(ac) 
+  if (Number(el1.value) > 0) 
   {
-    if(Number(el1.textContent) >= ft)
-    {
-      el2.textContent = Number(el2.textContent)+1;
-      el1.textContent = "00";
-    }
-  }
-  else 
-  {
-    if (Number(el1.value) > 0) 
-    {
-      el1.value = Number(el1.value) - 1;
-      el2.value = ft;
-
-      t = true;
-    }
+    el1.value = Number(el1.value) - 1;
+    el2.value = ft;
+    
+    t = true;
   }
 
-  if (el1.textContent == "") 
-  {
-    //case Timer
-    el1.value = changePrefix(el1.value, el2.value)[0];
-    el2.value = changePrefix(el1.value, el2.value)[1];
-  } //case cronometer
-  else 
-  {
-    el1.textContent = changePrefix(el1.textContent, el2.textContent)[0];
-    el2.textContent = changePrefix(el1.textContent, el2.textContent)[1];
-  }
-  
+  el1.value = changePrefix(el1.value, el2.value)[0];
+  el2.value = changePrefix(el1.value, el2.value)[1];
+
   return t;
+};
+
+const auxFRCR =
+(el1, el2, ft)=>{
+
+  if(Number(el1.textContent) >= ft)
+  {
+    el2.textContent = Number(el2.textContent)+1;
+    el1.textContent = "00";
+  }
+
+  el1.textContent = changePrefix(el1.textContent, el2.textContent)[0];
+  el2.textContent = changePrefix(el1.textContent, el2.textContent)[1];
 }
-
-
 
 const changePrefix = (pel1, pel2)=>
   {
-  if (Number(pel1) < 10 && pel1.length < 2)
-    pel1 = "0" + pel1;
+    if (Number(pel1) < 10 && pel1.length < 2)
+      pel1 = "0" + pel1;
 
-  if (Number(pel2) < 10 && pel2.length < 2)
-    pel2 = "0" + pel2;
+    if (Number(pel2) < 10 && pel2.length < 2)
+      pel2 = "0" + pel2;
 
-  return [pel1, pel2]
-}
+    if (pel1 == "") 
+      pel1 = "00";
+
+    if (pel2 == "") 
+      pel2 = "00";
+
+    return [pel1, pel2]
+  }
 
 pauseCronoBtn.addEventListener("click",()=>{
   if(initCronoBtn.classList.contains("active"))
