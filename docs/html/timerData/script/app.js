@@ -10,10 +10,6 @@ const segCR = document.querySelector("span#spCronoS");
 const msCR = document.querySelector("span#spCronoMS");
 
 const TimeElementsCR = [horaCR, minCR, segCR, msCR];
-const HCRV = horaCR.getAttribute("data-value")
-const MCRV = minCR.getAttribute("data-value");
-const SCRV = segCR.getAttribute("data-value");
-const MSCRV = msCR.getAttribute("data-value");
 
 const initTimerBtn = document.querySelector("button#PP");
 const initCronoBtn = document.querySelector("button#CronoInit")
@@ -332,12 +328,19 @@ initCronoBtn.addEventListener("click",
         initCronoBtn.textContent = "Pausar"
         initCronoBtn.classList.remove("inactive");
         initCronoBtn.classList.add('active');
-
+        
+        let lastTime = performance.now()
+        
         timerCR = setInterval(function time() 
         {
-          msCR.textContent = Number(msCR.textContent)+1;
+          let currentTime = performance.now();
+          let dif = currentTime - lastTime;
+          lastTime = currentTime;
+          
+          msCR.textContent = ((Number(msCR.textContent) + dif).toFixed(0) +1);
+
           formatCR();
-        }, 10);
+        }, 1000);
       }
       else
       {
@@ -351,7 +354,7 @@ initCronoBtn.addEventListener("click",
 
 const formatCR= 
 ()=>{
-  auxFRCR(msCR, segCR, 100);
+  auxFRCR(msCR, segCR, 1);
   auxFRCR(segCR, minCR, 60);
   auxFRCR(minCR, horaCR, 60);
 }
@@ -397,7 +400,6 @@ const formatTm =
 Args:
 el1, el2: time elements to make comparison
 ft: int stop flag
-ac: boolean to if its timer or cronometer usage
 */
 const auxFRTm = (el1, el2, ft) => {
   if (Number(el1.value) > 0) 
@@ -406,8 +408,10 @@ const auxFRTm = (el1, el2, ft) => {
     el2.value = ft;
   }
 
-  el1.value = changePrefix(el1.value, el2.value)[0];
-  el2.value = changePrefix(el1.value, el2.value)[1];
+  let V = changePrefix(el1.value, el2.value);
+
+  el1.value = V[0];
+  el2.value = V[1];
 };
 
 const auxFRCR =
@@ -418,23 +422,25 @@ const auxFRCR =
     el2.textContent = Number(el2.textContent)+1;
     el1.textContent = "00";
   }
-  el1.textContent = changePrefix(el1.textContent, el2.textContent)[0];
-  el2.textContent = changePrefix(el1.textContent, el2.textContent)[1];
+  
+  let V = changePrefix(el1.textContent, el2.textContent);
+  el1.textContent = V[0];
+  el2.textContent = V[1];
 }
 
 const changePrefix = (pel1, pel2)=>
   {
     if (Number(pel1) < 10 && pel1.length < 2)
-      pel1 = "0" + pel1;
+      pel1 = ("0") + pel1;
 
     if (Number(pel2) < 10 && pel2.length < 2)
-      pel2 = "0" + pel2;
+      pel2 = ("0") + pel2;
 
     if (pel1 == "") 
-      pel1 = "00";
+      pel1 = "0";
 
     if (pel2 == "") 
-      pel2 = "00";
+      pel2 = "0";
 
     return [pel1, pel2]
   }
