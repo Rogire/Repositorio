@@ -367,8 +367,6 @@ const formatTm =
 
     if(ehPraRodar)
     {//second is always <0
-      //TODO: Arrumar isso aqui direito (quando roda pra hora roda pro minuto duas vezes sem mexer nos segundos)
-
       if(hora.value >0)
       {
         if(min.value >0)
@@ -381,12 +379,6 @@ const formatTm =
       }
       else
         auxFRTm(min, seg, 59);
-      
-      /*res = auxFRTm(hora, min, 59, false);
-      if(res)
-        seg.value = "59";
-      else
-        auxFRTm(min, seg, 59, false);*/
     }
   };
 
@@ -397,19 +389,14 @@ ft: int stop flag
 ac: boolean to if its timer or cronometer usage
 */
 const auxFRTm = (el1, el2, ft) => {
-  t = false;
   if (Number(el1.value) > 0) 
   {
     el1.value = Number(el1.value) - 1;
     el2.value = ft;
-    
-    t = true;
   }
 
   el1.value = changePrefix(el1.value, el2.value)[0];
   el2.value = changePrefix(el1.value, el2.value)[1];
-
-  return t;
 };
 
 const auxFRCR =
@@ -420,7 +407,6 @@ const auxFRCR =
     el2.textContent = Number(el2.textContent)+1;
     el1.textContent = "00";
   }
-
   el1.textContent = changePrefix(el1.textContent, el2.textContent)[0];
   el2.textContent = changePrefix(el1.textContent, el2.textContent)[1];
 }
