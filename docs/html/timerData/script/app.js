@@ -376,7 +376,6 @@ const formatTm =
       else
         auxFR(min, seg, 59, false);
     }
-    
   };
 
 /* 
@@ -421,6 +420,9 @@ const auxFR=
   
   return t;
 }
+
+
+
 const changePrefix = (pel1, pel2)=>
   {
   if (Number(pel1) < 10 && pel1.length < 2)
