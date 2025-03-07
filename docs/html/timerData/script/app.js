@@ -17,7 +17,7 @@ const MSCRV = msCR.getAttribute("data-value");
 
 const initTimerBtn = document.querySelector("button#PP");
 const initCronoBtn = document.querySelector("button#CronoInit")
-const pauseCronoBtn = document.querySelector("button#CronoPause");
+const stopCronoBtn = document.querySelector("button#CronoPause");
 
 const addTimeToTimer = document.querySelector("button#addTime");
 const newT = document.querySelector("button#addNewTimer");
@@ -29,8 +29,9 @@ const pauseB = document.createElement("button");
 const alarm = document.createElement("audio");
 const Values = [];
 
+let JaRodou = 0;
+
 let timer, timerCR;
-let vef;
 
 alarm.src = opts[0].value;
 
@@ -73,21 +74,31 @@ initTimerBtn.addEventListener("click",
         Values[2] = seg.value
       }
 
-      vef = false;
       initTimerBtn.classList.remove("inactive");
       initTimerBtn.classList.add("active");
       initTimerBtn.textContent = "Pausar";
-
-      timer = setInterval(function time() {
+      
+      timer = setInterval(function time() 
+      {
       if(seg.value >=0)
           seg.value--;
       if (seg.value < 10 && seg.value.length == 1)
         seg.value = "0" + seg.value;
 
-      document.title = `${hora.value}:${min.value}:${seg.value}`;
-            
+      if (seg.value == -1)
+        document.title = `${hora.value}:${Number(min.value-1)}:${"59"}`;
+      else
+        document.title = `${hora.value}:${min.value}:${seg.value}`;
+
       if (seg.value < 0) 
         formatTm(true)
+
+      if (JaRodou == 0) 
+      {
+        JaRodou++;
+        initCronoBtn.click();
+      }
+
       }, 1000);
     }
     else if(initTimerBtn.classList.contains("active"))
@@ -428,7 +439,7 @@ const changePrefix = (pel1, pel2)=>
     return [pel1, pel2]
   }
 
-pauseCronoBtn.addEventListener("click",()=>{
+stopCronoBtn.addEventListener("click",()=>{
   if(initCronoBtn.classList.contains("active"))
   {
     initCronoBtn.textContent = "Iniciar";
@@ -441,4 +452,5 @@ pauseCronoBtn.addEventListener("click",()=>{
     element.textContent = "0"
   });
   formatCR();
+  JaRodou = 0;
 })
