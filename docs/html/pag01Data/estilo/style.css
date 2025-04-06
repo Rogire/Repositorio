@@ -307,71 +307,105 @@ footer{
 
 @media (max-width:500px) 
 {
-    html,body{
-        overflow-x: hidden;
-    }
-    body {
-        position: relative;
-        background-color: #68594A;
-        background-image: url('fundoParallax/fundoMob.png');
-        background-repeat:no-repeat;
-        
-        background-size: cover;
-    }
+        html,body{
+            overflow-x: hidden;
+        }
+        body {
+            position: relative;
+            background-color: #68594A;
+            background-image: url('fundoParallax/fundoMob.png');
+            background-repeat:no-repeat;
+            
+            background-size: cover;
+        }
         h2 {
             color: aliceblue;
             font-size: 20px;
             text-align: center;
         }
-    div.apresent{
-        width: 98%;
-    }
+        div.apresent{
+            width: 98%;
+        }
         .apresent>span {
             width: 1px;
         }
-    
+        div.hidden2{
+            margin: 0;
+        }
         div.eta {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
+            width: 60%;
+            margin: 0;
         }
     
         div.container {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-    div.boxes.mob{
-        display: flex;
-        flex-direction: row;
-    }
+
+        div.boxes.mob{
+            display: flex;
+            flex-direction: row;
+        }
 }
 
 @media (max-width:1200px) 
 {
-    body
-    {
+    body{
         background-image: url('fundoParallax/fundoMob.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
         height: 98vh;
     }
+    div.apresent{
+        font-size: 2em;
+        background-color: rgba(173, 216, 230, 0.822);
+        padding: 5px;
+        border-radius: 30px;
+    }
     .apresent>span{
         width: 1px;
+    }
+    nav>p{
+        font-size: 30px;
     }
     div.eta{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        width: 60%;
     }
     div.container{
         display: flex;
         flex-direction: column;
     }
+    div.card.um{
+        height: fit-content;
+    }
+    div.conta.um{
+        height: 100px;
+    }
+    p#lang_description{
+        margin: 10px;
+    }
+    button.ler{
+        margin: 20px;
+    }
+    .card.um.active{
+        
+        height: fit-content;
+    }
     main{
         height: 98vh;
         width: 98vw;
+    }
+    h2{
+        font-size: 30px;
     }
 }
