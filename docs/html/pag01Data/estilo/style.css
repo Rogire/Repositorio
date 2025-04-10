@@ -335,6 +335,7 @@ footer{
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            width: 60%;
         }
     
         div.container {
@@ -365,6 +366,7 @@ footer{
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        width: 65%;
     }
     div.container{
         display: flex;
