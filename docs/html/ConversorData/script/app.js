@@ -20,8 +20,8 @@ function preConvert(caixa) {
   let converter = cur2.value;
   let converter2 = cur3.value;
 
-  const url = `https://v6.exchangerate-api.com/v6/c4e0096d9ce997a326f289f9/latest/${currency}`;
-  const url2 = `https://v6.exchangerate-api.com/v6/c4e0096d9ce997a326f289f9/latest/${currency2}`;
+  const url = `https://v6.exchangerate-api.com/v6/8211c46df263b2f9e0b56e63/latest/${currency}`;
+  const url2 = `https://v6.exchangerate-api.com/v6/8211c46df263b2f9e0b56e63/latest/${currency2}`;
 
   if((currency !=='' || converter !=='') && (currency2 !== '' || converter2 !== ''))
     SetErrorFor("Selecione apenas um modo de conversão", caixa);
