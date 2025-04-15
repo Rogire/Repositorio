@@ -1,33 +1,41 @@
 @media (max-width: 500px) {
-    div.CLeft {
-        position: absolute;
-        top: 20%;
-        left: 20%;
+    body{
+        min-height: 100vh;
+        height: fit-content;
+    }
+    div.container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    div.container div.CLeft {
+        position: relative;
         background-color: #fff56c62;
         border-radius: 15px;
-        margin: 15px;
         width: 200px;
         height: -moz-fit-content;
         height: fit-content;
         padding: 10px;
     }
 
-    div.CCntr {
-        position: absolute;
+    div.container div.CCntr {
+        position: relative;
         width: 50%;
         height: 10%;
-        left: 8%;
-        top: 0%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        left: 2%;
         align-items: center;
         border-radius: 10px;
         background-color: var(--corAux);
         box-shadow: 7px 8px 8px rgba(0, 0, 0);
     }
-
-    input.tInp {
+    div.container div.timerC{
+        font-size: 10px;
+    }
+    div.container input.tInp.mainBtn {
         background-color: #926f22;
         border-radius: 5px;
         box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.336);
@@ -43,7 +51,7 @@
     div.setNT {
         position: absolute;
         display: flex;
-        top: 7%;
+        top: 10%;
         left: 0%;
         font-size: 10px;
         flex-direction: column;

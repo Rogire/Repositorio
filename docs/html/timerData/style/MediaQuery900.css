@@ -1,11 +1,11 @@
-@media (max-width: 900px) {
-    div.CCntr {
+@media (max-width: 1000px) {
+    div.container div.CCntr {
         position: absolute;
-        top: -5%;
+        top: 15%;
         width: 50%;
-        height: 25%;
+        height: 15%;
         margin: 15%;
-        left: 15%;
+        left: 0%;
         padding: 25px;
         display: flex;
         flex-direction: column;
@@ -15,18 +15,26 @@
         background-color: var(--corAux);
         box-shadow: 7px 8px 8px rgba(0, 0, 0);
     }
+    div.container div.CMid{
+        width: fit-content;
+    }
 
-    input.tInp {
+    input.tInp.mainBtn {
         background-color: #926f22;
         border-radius: 5px;
         box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.336);
         padding: 10px;
         border: none;
-        width: 80px;
+        width: 60px;
         height: 70px;
         font-size: 60px;
         margin: 2px;
         font-family: "Inconsolata";
+    }
+    button.btn{
+        width: 100px;
+        height: 50px;
+        font-size: 18px;
     }
     div.endTimer
     {

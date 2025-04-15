@@ -206,11 +206,6 @@ newT.addEventListener("click",()=>{
         //delete item list
         deleteIten.addEventListener("click",()=>{
             listTimers.removeChild(itenTimer);
-
-            TimeElements.forEach((element, index)=>
-            {
-              element.value = Values[index]
-            })
         })
 
         itenTimer.addEventListener("click",()=>{

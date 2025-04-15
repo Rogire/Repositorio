@@ -51,7 +51,6 @@ div.CronoContainer{
     font-size: 25px;
 }
 
-
 span.crono{
         background-color: #926f22;
         border-radius: 5px;
@@ -165,7 +164,7 @@ div.setNT{
     position: absolute;
     display: flex;
     top: 2%;
-    left: 17%;
+    right: 17%;
     flex-direction: column;
     background-color: var(--corAux);
     width: -moz-fit-content;
